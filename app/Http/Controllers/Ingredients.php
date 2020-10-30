@@ -14,6 +14,9 @@ class Ingredients extends Controller
     public function index()
     {
         //
+        $ingredients = DB::select('SELECT * FROM ingredients');
+        return view('home',['ingredients'=>$ingredients]);
+
     }
 
     /**

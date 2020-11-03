@@ -11,6 +11,11 @@ class Ingredients extends Model
 
     public function medicalCondition()
     {
-        return $this->belongTo(medicalCondition::class);
+        return $this->belongsTo(medicalCondition::class);
+    }
+
+    public function nutrition()
+    {
+        return $this->belongsTo(nutrition::class);
     }
 }

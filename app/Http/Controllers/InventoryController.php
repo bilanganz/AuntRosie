@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Ingredients extends Controller
+class InventoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,6 @@ class Ingredients extends Controller
     public function index()
     {
         //
-        $ingredients = DB::select('SELECT * FROM ingredients');
-        return view('home',['ingredients'=>$ingredients]);
-
     }
 
     /**

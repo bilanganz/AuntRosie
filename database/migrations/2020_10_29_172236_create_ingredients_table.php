@@ -15,7 +15,7 @@ class CreateIngredientsTable extends Migration
     {
         Schema::create('ingredients', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('medical_condition_id');
+            $table->unsignedBigInteger('medical_condition_id')->nullable();
             $table->unsignedBigInteger('nutrition_id');
             $table->string('name');
             $table->string('description');

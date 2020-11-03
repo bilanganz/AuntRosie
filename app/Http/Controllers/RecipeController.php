@@ -4,16 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class MedicalCondition extends Controller
+class RecipeController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Recipes $recipes)
     {
-        //
+        $recipes = $recipes->all();
     }
 
     /**

@@ -3,17 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Ingredients;
 
-class Inventory extends Controller
+class IngredientsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Ingredients $ingredients)
     {
         //
+        //$ingredients = DB::select('SELECT * FROM ingredients');
+        
+        $ingredients = $ingredients::all();
+        return view('ingredients.index',compact('ingredients'));
+        //return view('home',['ingredients'=>$ingredients]);
+
     }
 
     /**

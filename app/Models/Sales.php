@@ -16,6 +16,6 @@ class Sales extends Model
 
     public function customers()
     {
-        return $this->hasMany(ingredients::class);
+        return $this->belongsTo(ingredients::class);
     }
 }

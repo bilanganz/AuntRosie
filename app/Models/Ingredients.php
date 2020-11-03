@@ -19,6 +19,11 @@ class Ingredients extends Model
         return $this->belongsTo(nutrition::class);
     }
 
+    public function stock()
+    {
+        return $this->belongsTo(stock::class);
+    }
+
     public function recipe()
     {
         return $this->belongsToMany(recipe::class);

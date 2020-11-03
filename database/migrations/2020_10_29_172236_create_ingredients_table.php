@@ -15,12 +15,12 @@ class CreateIngredientsTable extends Migration
     {
         Schema::create('ingredients', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('medicalCondition_id');
+            $table->unsignedBigInteger('medical_condition_id');
             $table->unsignedBigInteger('nutrition_id');
             $table->string('name');
             $table->string('description');
             $table->bigInteger('shelfLife');
-            $table->foreign('medicalCondition_id')->references('id')->on('medical_conditions');
+            $table->foreign('medical_condition_id')->references('id')->on('medical_conditions');
             $table->foreign('nutrition_id')->references('id')->on('nutrition');
         });
     }

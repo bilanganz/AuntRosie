@@ -11,7 +11,7 @@ class IngredientsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
     /**
      * Display a listing of the resource.
@@ -49,7 +49,10 @@ class IngredientsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|unique:posts|max:255',
+            'body' => 'required',
+        ]);
     }
 
     /**

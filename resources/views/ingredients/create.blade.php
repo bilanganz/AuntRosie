@@ -24,10 +24,12 @@
                 <!--<textarea id="body" name="body" class="form-control" required></textarea>-->
             </div>
             <div class="form-group">
-                @foreach($medicalConditions as $medicalCondition)
-                    <input type="checkbox" id="{{$medicalCondition->name}}" name="{{$medicalCondition->name}}" value="{{$medicalCondition->name}}">
-                    <label for="{{$medicalCondition->name}}"> {{$medicalCondition->name}}</label><br>
-                @endforeach
+                <label for="medical_condition">Medical Condition:</label>
+                <select name="medical_condition" id="medical_condition">
+                    @foreach($medicalConditions as $medicalCondition)
+                        <option value="{{$medicalCondition->name}}">{{$medicalCondition->name}}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Publish</button>

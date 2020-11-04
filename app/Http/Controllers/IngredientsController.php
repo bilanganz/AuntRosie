@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Ingredients;
+use App\Models\MedicalCondition;
+
 
 class IngredientsController extends Controller
 {
@@ -31,6 +33,8 @@ class IngredientsController extends Controller
     public function create()
     {
         //
+        $medicalConditions = MedicalCondition::all();
+        return view('ingredients.create', compact('medicalConditions'));
     }
 
     /**

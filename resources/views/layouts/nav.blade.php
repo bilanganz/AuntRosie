@@ -29,7 +29,7 @@
       <div class="navbar navbar-dark bg-dark box-shadow">
         <div class="container d-flex justify-content-between">
           <a href="/" class="navbar-brand d-flex align-items-center">
-            <img src="images/baker_icon.ico" alt="Aunt Rosie's Logo" width="45" height="45"/>
+            <img src="/images/baker_icon.ico" alt="Aunt Rosie's Logo" width="45" height="45"/>
             <strong>Aunt Rosie's Homemade Pies and Preserves</strong>
           </a>
           <div class="d-flex flex-row-reverse">

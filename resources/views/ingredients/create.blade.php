@@ -27,7 +27,7 @@
                 <label for="medical_condition">Medical Condition:</label>
                 <select name="medical_condition" id="medical_condition">
                     @foreach($medicalConditions as $medicalCondition)
-                        <option value="{{$medicalCondition->name}}">{{$medicalCondition->name}}</option>
+                        <option value="{{$medicalCondition->id}}">{{$medicalCondition->name}}</option>
                     @endforeach
                 </select>
             </div>

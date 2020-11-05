@@ -47,9 +47,13 @@ class IngredientsController extends Controller
             'name' => 'required|unique:posts|max:255',
             'description' => 'required|max:255',
             'shelfLife' => 'required|numeric|min:0|not_in:0',
-            'medical_condition' => 'nullable',
+            'medical_condition_id' => 'nullable',
             'nutrition_id'=>'required|numeric|min:0|not_in:0'
         ]);
+
+        $ingredient = new Ingredients(request(['name','description','shelfLife','medical_condition_id','nutrition_id']));
+        
+        $ingredient->save();
     }
 
     /**

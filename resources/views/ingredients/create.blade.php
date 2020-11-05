@@ -18,10 +18,12 @@
             <div class="form-group">
                 <label for="description">description:</label>
                 <textarea id="description" name="description" class="form-control"></textarea>
+                {!! $errors->first('description', '<p class="alert alert-danger">:message</p>') !!}
             </div>
             <div class="form-group">
                 <label for="shelf_life">Shelf Life:</label>
                 <input type="text" class="form-control" id="shelf_life" name="shelf_life">
+                {!! $errors->first('shelf_life', '<p class="alert alert-danger">:message</p>') !!}
             </div>
             <div class="form-group">
                 <label for="medical_condition">Medical Condition:</label>
@@ -34,64 +36,77 @@
             <div class="form-group">
                 <label for="calories">Calories:</label>
                 <input type="text" class="form-control" id="calories" name="calories">
+                {!! $errors->first('calories', '<p class="alert alert-danger">:message</p>') !!}
             </div>
             <div class="form-group">
                 <label for="fat">Fat:</label>
                 <input type="text" class="form-control" id="fat" name="fat">
+                {!! $errors->first('fat', '<p class="alert alert-danger">:message</p>') !!}
             </div>
             <div class="form-group">
                 <label for="saturatedFat">Saturated Fat:</label>
                 <input type="text" class="form-control" id="saturatedFat" name="saturatedFat">
+                {!! $errors->first('saturatedFat', '<p class="alert alert-danger">:message</p>') !!}
             </div>
             <div class="form-group">
                 <label for="transFat">Trans Fat:</label>
                 <input type="text" class="form-control" id="transFat" name="transFat">
+                {!! $errors->first('transFat', '<p class="alert alert-danger">:message</p>') !!}
             </div>
             <div class="form-group">
                 <label for="cholestrol">Cholestrol:</label>
                 <input type="text" class="form-control" id="cholestrol" name="cholestrol">
+                {!! $errors->first('cholestrol', '<p class="alert alert-danger">:message</p>') !!}
             </div>
             <div class="form-group">
                 <label for="sodium">Sodium:</label>
                 <input type="text" class="form-control" id="sodium" name="sodium">
+                {!! $errors->first('sodium', '<p class="alert alert-danger">:message</p>') !!}
             </div>
             <div class="form-group">
                 <label for="carbohydrate">Carbohydrate:</label>
                 <input type="text" class="form-control" id="carbohydrate" name="carbohydrate">
+                {!! $errors->first('carbohydrate', '<p class="alert alert-danger">:message</p>') !!}
             </div>
             <div class="form-group">
                 <label for="dietaryFiber">Dietary Fiber:</label>
                 <input type="text" class="form-control" id="dietaryFiber" name="dietaryFiber">
+                {!! $errors->first('dietaryFiber', '<p class="alert alert-danger">:message</p>') !!}
             </div>
             <div class="form-group">
                 <label for="sugar">Sugar:</label>
                 <input type="text" class="form-control" id="sugar" name="sugar">
+                {!! $errors->first('sugar', '<p class="alert alert-danger">:message</p>') !!}
             </div>
             <div class="form-group">
                 <label for="protein">Protein:</label>
                 <input type="text" class="form-control" id="protein" name="protein">
+                {!! $errors->first('protein', '<p class="alert alert-danger">:message</p>') !!}
             </div>
             <div class="form-group">
                 <label for="vitaminD">Vitamin D:</label>
                 <input type="text" class="form-control" id="vitaminD" name="vitaminD">
+                {!! $errors->first('vitaminD', '<p class="alert alert-danger">:message</p>') !!}
             </div>
             <div class="form-group">
                 <label for="calcium">Calcium:</label>
                 <input type="text" class="form-control" id="calcium" name="calcium">
+                {!! $errors->first('calcium', '<p class="alert alert-danger">:message</p>') !!}
             </div>
             <div class="form-group">
                 <label for="iron">Iron:</label>
                 <input type="text" class="form-control" id="iron" name="iron">
+                {!! $errors->first('iron', '<p class="alert alert-danger">:message</p>') !!}
             </div>
             <div class="form-group">
                 <label for="potassium">Potassium:</label>
                 <input type="text" class="form-control" id="potassium" name="potassium">
+                {!! $errors->first('potassium', '<p class="alert alert-danger">:message</p>') !!}
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Publish</button>
             </div>
-            
-            @include ('layouts.errors')
+            <!-- @include ('layouts.errors') -->
         </form>
     </div>
     </div>

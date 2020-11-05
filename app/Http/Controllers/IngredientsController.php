@@ -47,8 +47,21 @@ class IngredientsController extends Controller
             'name' => 'required|unique:posts|max:255',
             'description' => 'required|max:255',
             'shelfLife' => 'required|numeric|min:0|not_in:0',
-            'medical_condition_id' => 'nullable',
-            'nutrition_id'=>'required|numeric|min:0|not_in:0'
+            'nutrition_id'=>'required|numeric|min:0|not_in:0',
+            'calories'=>'required|numeric|min:0|not_in:0',
+            'fat'=>'required|numeric|min:0|not_in:0',
+            'saturatedFat'=>'required|numeric|min:0|not_in:0',
+            'transFat'=>'required|numeric|min:0|not_in:0',
+            'cholestrol'=>'required|numeric|min:0|not_in:0',
+            'sodium'=>'required|numeric|min:0|not_in:0',
+            'carbohydrate'=>'required|numeric|min:0|not_in:0',
+            'dietaryFiber'=>'required|numeric|min:0|not_in:0',
+            'sugar'=>'required|numeric|min:0|not_in:0',
+            'protein'=>'required|numeric|min:0|not_in:0',
+            'vitaminD'=>'required|numeric|min:0|not_in:0',
+            'calcium'=>'required|numeric|min:0|not_in:0',
+            'iron'=>'required|numeric|min:0|not_in:0',
+            'potassium'=>'required|numeric|min:0|not_in:0',
         ]);
 
         $ingredient = new Ingredients(request(['name','description','shelfLife','medical_condition_id','nutrition_id']));

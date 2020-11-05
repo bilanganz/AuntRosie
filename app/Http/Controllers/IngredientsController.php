@@ -20,13 +20,8 @@ class IngredientsController extends Controller
      */
     public function index(Ingredients $ingredients)
     {
-        //
-        //$ingredients = DB::select('SELECT * FROM ingredients');
-        
         $ingredients = $ingredients::all();
         return view('ingredients.index',compact('ingredients'));
-        //return view('home',['ingredients'=>$ingredients]);
-
     }
 
     /**
@@ -36,7 +31,6 @@ class IngredientsController extends Controller
      */
     public function create()
     {
-        //
         $medicalConditions = MedicalCondition::all();
         return view('ingredients.create', compact('medicalConditions'));
     }
@@ -51,7 +45,10 @@ class IngredientsController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|unique:posts|max:255',
-            'body' => 'required',
+            'description' => 'required|max:255',
+            'shelfLife' => 'required|numeric|min:0|not_in:0',
+            'medical_condition' => 'nullable',
+            'nutrition_id'=>'required|numeric|min:0|not_in:0'
         ]);
     }
 

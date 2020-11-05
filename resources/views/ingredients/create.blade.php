@@ -12,24 +12,24 @@
             {{csrf_field()}}
             <div class="form-group">
                 <label for="name">Ingredient Name:</label>
-                <input type="text" class="form-control" id="name" name="name">
+                <input type="text" class="form-control" id="name" name="name" @if(!$errors->has('name')) value="{{ old('name') }}" @endif>
                 {!! $errors->first('name', '<p class="alert alert-danger">:message</p>') !!}
             </div>
             <div class="form-group">
                 <label for="description">description:</label>
-                <textarea id="description" name="description" class="form-control"></textarea>
+                <textarea id="description" name="description" class="form-control" @if(!$errors->has('description')) value="{{ old('description') }}" @endif></textarea>
                 {!! $errors->first('description', '<p class="alert alert-danger">:message</p>') !!}
             </div>
             <div class="form-group">
-                <label for="shelf_life">Shelf Life:</label>
-                <input type="text" class="form-control" id="shelf_life" name="shelf_life">
-                {!! $errors->first('shelf_life', '<p class="alert alert-danger">:message</p>') !!}
+                <label for="shelfLife">Shelf Life:</label>
+                <input type="text" class="form-control" id="shelfLife" name="shelfLife" @if(!$errors->has('shelfLife')) value="{{ old('shelfLife') }}" @endif>
+                {!! $errors->first('shelfLife', '<p class="alert alert-danger">:message</p>') !!}
             </div>
             <div class="form-group">
-                <label for="medical_condition">Medical Condition:</label>
-                <select name="medical_condition" id="medical_condition">
+                <label for="medical_condition_id">Medical Condition:</label>
+                <select name="medical_condition_id" id="medical_condition_id">
                     @foreach($medicalConditions as $medicalCondition)
-                        <option value="{{$medicalCondition->id}}">{{$medicalCondition->name}}</option>
+                        <option value="{{$medicalCondition->id}}" @if(!$errors->has('medical_condition_id')) selected @endif>{{$medicalCondition->name}}</option>
                     @endforeach
                 </select>
             </div>

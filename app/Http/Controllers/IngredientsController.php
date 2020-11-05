@@ -44,10 +44,10 @@ class IngredientsController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|unique:posts|max:255',
+            'name' => 'required|unique:ingredients|max:255',
             'description' => 'required|max:255',
             'shelfLife' => 'required|numeric|min:0|not_in:0',
-            'nutrition_id'=>'required|numeric|min:0|not_in:0',
+            'medical_condition_id'=>'required|numeric|min:0|not_in:0',
             'calories'=>'required|numeric|min:0|not_in:0',
             'fat'=>'required|numeric|min:0|not_in:0',
             'saturatedFat'=>'required|numeric|min:0|not_in:0',

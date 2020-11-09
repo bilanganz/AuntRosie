@@ -7,10 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Nutrition extends Model
 {
+    protected $guarded =[];
+    public $timestamps = false;
+
     use HasFactory;
 
     public function ingredients()
     {
-        return $this->hasOne(ingredients::class);
+        return $this->belongsTo(ingredients::class);
     }
 }

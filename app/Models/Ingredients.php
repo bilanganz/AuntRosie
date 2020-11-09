@@ -7,16 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ingredients extends Model
 {
+    protected $guarded =[];
+    public $timestamps = false;
+
     use HasFactory;
 
     public function medicalCondition()
     {
-        return $this->belongsTo(medicalCondition::class);
+        return $this->hasOne(medicalCondition::class);
     }
 
     public function nutrition()
     {
-        return $this->belongsTo(nutrition::class);
+        return $this->hasOne(nutrition::class);
     }
 
     public function stock()

@@ -29,7 +29,8 @@
                 <label for="medical_condition_id">Medical Condition:</label>
                 <select name="medical_condition_id" id="medical_condition_id">
                     @foreach($medicalConditions as $medicalCondition)
-                        <option value="{{$medicalCondition->id}}" @if(!$errors->has('medical_condition_id')) selected @endif>{{$medicalCondition->name}}</option>
+                        <!--  @if(!$errors->has('medical_condition_id')) selected @endif -->
+                        <option value="{{$medicalCondition->id}}">{{$medicalCondition->name}}</option>
                     @endforeach
                 </select>
             </div>

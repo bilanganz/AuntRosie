@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Ingredients;
+use App\Models\Nutrition;
 use App\Models\MedicalCondition;
 
 
@@ -64,8 +65,11 @@ class IngredientsController extends Controller
             'potassium'=>'required|numeric|min:0|not_in:0',
         ]);
 
-        $ingredient = new Ingredients(request(['name','description','shelfLife','medical_condition_id','nutrition_id']));
-        
+        $nutrition = new Nutrition(request(['calories','fat','saturatedFat','transFat','cholestrol','sodium','carbohydrate','dietaryFiber','sugar','protein','vitaminD','calcium','iron','potassium']));
+        $nutrition->save();
+
+        $ingredient = new Ingredients(request(['name','description','shelfLife',$nutrition->id,'nutrition_id']));
+        $ingredient->nutrition_id = $nutrition->id;
         $ingredient->save();
     }
 

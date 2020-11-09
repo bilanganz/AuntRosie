@@ -68,8 +68,9 @@ class IngredientsController extends Controller
         $nutrition = new Nutrition(request(['calories','fat','saturatedFat','transFat','cholestrol','sodium','carbohydrate','dietaryFiber','sugar','protein','vitaminD','calcium','iron','potassium']));
         $nutrition->save();
 
-        $ingredient = new Ingredients(request(['name','description','shelfLife',$nutrition->id,'nutrition_id']));
+        $ingredient = new Ingredients(request(['name','description','shelfLife']));
         $ingredient->nutrition_id = $nutrition->id;
+        
         $ingredient->save();
     }
 

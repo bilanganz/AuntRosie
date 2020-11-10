@@ -1,11 +1,11 @@
 <footer class="text-muted">
-      <div class="container">
-        <p class="float-right">
-          <a href="#">Back to top</a>
-        </p>
-        <p>Aunt Rosie's Homemade Pies and Preserves &copy; 2020</p>
-      </div>
-    </footer>
+  <div class="container">
+    <p class="float-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>Aunt Rosie's Homemade Pies and Preserves &copy; 2020</p>
+  </div>
+</footer>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

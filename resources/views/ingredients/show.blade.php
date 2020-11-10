@@ -8,7 +8,7 @@
         <div class="row justify-content-md-center">
             <div class="col-md-8">
 
-                <h1>Showing {{ $ingredient->name }}</h1>
+                <h1>Showing {{ $ingredient->name }} Information</h1>
 
                 <table class="table">
                     <tbody>
@@ -18,7 +18,7 @@
                         </tr>
                         <tr>
                         <th scope="row">Shelf Life</th>
-                        <td>{{ $ingredient->shelfLife }}</td>
+                        <td>{{ $ingredient->shelfLife }} weeks</td>
                         </tr>
                         <tr>
                         <th scope="row">Calories</th>

@@ -78,7 +78,7 @@ class IngredientsController extends Controller
             'message','You have successfully added ingredient.'  
         );
 
-        return redirect()->home();
+        return redirect()->action([IngredientsController::class, 'index']);
     }
 
     /**
@@ -89,7 +89,9 @@ class IngredientsController extends Controller
      */
     public function show($id)
     {
-        //
+        $ingredient = Ingredients::find($id);
+
+        return view('ingredients.show', compact('ingredient'));
     }
 
     /**
@@ -100,7 +102,7 @@ class IngredientsController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**

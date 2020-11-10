@@ -27,5 +27,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/credit', function() {return view('credit');});
 Route::get('/ingredients', 'App\Http\Controllers\IngredientsController@index');
 Route::get('/ingredients/create', 'App\Http\Controllers\IngredientsController@create');
+Route::get('/ingredients/{ingredients}', 'App\Http\Controllers\IngredientsController@show');
+Route::get('/ingredients/{ingredients}/edit', 'App\Http\Controllers\IngredientsController@edit');
 
 Route::post('/ingredients','App\Http\Controllers\IngredientsController@store');

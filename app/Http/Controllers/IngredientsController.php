@@ -90,8 +90,9 @@ class IngredientsController extends Controller
     public function show($id)
     {
         $ingredient = Ingredients::find($id);
+        $nutrition = Nutrition::find($ingredient->nutrition_id);
 
-        return view('ingredients.show', compact('ingredient'));
+        return view('ingredients.show', compact(['ingredient','nutrition']));
     }
 
     /**

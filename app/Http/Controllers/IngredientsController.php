@@ -103,7 +103,11 @@ class IngredientsController extends Controller
      */
     public function edit($id)
     {
-        
+        $ingredient = Ingredients::find($id);
+        $nutrition = Nutrition::find($ingredient->nutrition_id);
+        $medicalConditions = MedicalCondition::all();
+
+        return view('ingredients.edit', compact(['ingredient','nutrition','medicalConditions']));
     }
 
     /**

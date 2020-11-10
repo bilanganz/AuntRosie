@@ -12,17 +12,17 @@
             {{csrf_field()}}
             <div class="form-group">
                 <label for="name">Ingredient Name:</label>
-                <input type="text" class="form-control" id="name" name="name" @if(!$errors->has('name')) value="{{ old('name') }}" @endif>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Name" @if(!$errors->has('name')) value="{{ old('name') }}" @endif>
                 {!! $errors->first('name', '<p class="alert alert-danger">:message</p>') !!}
             </div>
             <div class="form-group">
                 <label for="description">description:</label>
-                <textarea id="description" name="description" class="form-control" @if(!$errors->has('description')) value="{{ old('description') }}" @endif></textarea>
+                <textarea id="description" name="description" class="form-control" placeholder="Description">@if(!$errors->has('description')) {{ old('description') }} @endif</textarea>
                 {!! $errors->first('description', '<p class="alert alert-danger">:message</p>') !!}
             </div>
             <div class="form-group">
                 <label for="shelfLife">Shelf Life:</label>
-                <input type="text" class="form-control" id="shelfLife" name="shelfLife" @if(!$errors->has('shelfLife')) value="{{ old('shelfLife') }}" @endif>
+                <input type="text" class="form-control" id="shelfLife" name="shelfLife" placeholder="Shelf life in weeks" @if(!$errors->has('shelfLife')) value="{{ old('shelfLife') }}" @endif>
                 {!! $errors->first('shelfLife', '<p class="alert alert-danger">:message</p>') !!}
             </div>
             <div class="form-group">
@@ -107,7 +107,6 @@
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Publish</button>
             </div>
-            <!-- @include ('layouts.errors') -->
         </form>
     </div>
     </div>

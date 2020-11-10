@@ -7,7 +7,7 @@
         <div class="d-flex justify-content-between align-items-center">
         <div class="btn-group">
             <a class="btn btn-primary btn-sm btn-outline-secondary" href="{{ URL::to('ingredients/' . $ingredient->id) }}" role="button">View</a>
-            <a class="btn btn-primary btn-sm btn-outline-secondary" href="#" role="button">Edit</a>
+            <a class="btn btn-primary btn-sm btn-outline-secondary" href="{{ URL::to('ingredients/' . $ingredient->id) . '/edit' }}" role="button">Edit</a>
         </div>
         <small class="text-muted">{{ $ingredient->shelfLife }} days</small>
         </div>

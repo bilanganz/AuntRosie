@@ -1,6 +1,8 @@
 @extends('layouts.master')
 
-@section('title', 'List of Ingredients')
+@section('title')
+    {{ $ingredient->name }} Show
+@endsection
 
 @section('content')
 <div class="album py-5 bg-light">

@@ -12,7 +12,8 @@
 
                 <h1>Edit {{ $ingredient->name }} Information</h1>
 
-                <form method="POST" action="/ingredients">
+                <form method="post" action="/ingredients/{{$ingredient->id}}">
+                    {{ method_field('put') }}
                     {{csrf_field()}}
                     <div class="form-group">
                         <label for="name">Ingredient Name:</label>

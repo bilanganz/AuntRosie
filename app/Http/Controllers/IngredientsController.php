@@ -119,7 +119,33 @@ class IngredientsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $ingredient = Ingredients::find($id);
+        $nutrition = Nutrition::find($ingredient->nutrition_id);
+
+        $ingredient->medical_condition_id = $request->input('medical_condition_id');
+        $ingredient->name = $request->input('name');
+        $ingredient->description = $request->input('description');
+        $ingredient->shelfLife = $request->input('shelfLife');
+        
+        $nutrition->calories = $request->input('calories');
+        $nutrition->fat = $request->input('fat');
+        $nutrition->saturatedFat = $request->input('saturatedFat');
+        $nutrition->transFat = $request->input('transFat');
+        $nutrition->cholestrol = $request->input('cholestrol');
+        $nutrition->sodium = $request->input('sodium');
+        $nutrition->carbohydrate = $request->input('carbohydrate');
+        $nutrition->dietaryFiber = $request->input('dietaryFiber');
+        $nutrition->sugar = $request->input('sugar');
+        $nutrition->protein = $request->input('protein');
+        $nutrition->protein = $request->input('vitaminD');
+        $nutrition->protein = $request->input('calcium');
+        $nutrition->protein = $request->input('iron');
+        $nutrition->protein = $request->input('potassium');
+
+        $ingredient->save();
+        $nutrition->save();
+
+        return redirect('/ingredients');
     }
 
     /**

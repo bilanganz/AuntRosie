@@ -12,7 +12,7 @@ class IngredientsController extends Controller
 {
     public function __construct()
     {
-        //$this->middleware('auth');
+        $this->middleware('auth');
     }
     /**
      * Display a listing of the resource.
@@ -66,12 +66,19 @@ class IngredientsController extends Controller
         ]);
 
         $nutrition = new Nutrition(request(['calories','fat','saturatedFat','transFat','cholestrol','sodium','carbohydrate','dietaryFiber','sugar','protein','vitaminD','calcium','iron','potassium']));
-        $nutrition->save();
-
-        $ingredient = new Ingredients(request(['name','description','shelfLife']));
-        $ingredient->nutrition_id = $nutrition->id;
+        $nutrition->save();        
         
+
+        $ingredient = new Ingredients(request(['name','description','shelfLife',$nutrition->id]));
+        $ingredient->nutrition_id = $nutrition->id;
+
         $ingredient->save();
+
+        session()->flash(
+            'message','You have successfully added ingredient.'  
+        );
+
+        return redirect()->home();
     }
 
     /**

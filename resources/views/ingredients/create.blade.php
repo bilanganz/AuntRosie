@@ -8,7 +8,7 @@
     <div class="col-sm-5">
         <h1>Insert New Ingredient</h1>
         <hr>
-        <form method="POST" action="/ingredients">
+        <form method="POST" action="/ingredients" enctype="multipart/form-data">
             {{csrf_field()}}
             <div class="form-group">
                 <label for="name">Ingredient Name:</label>
@@ -103,6 +103,10 @@
                 <label for="potassium">Potassium:</label>
                 <input type="text" class="form-control" id="potassium" name="potassium" @if(!$errors->has('potassium')) value="{{ old('potassium') }}" @endif>
                 {!! $errors->first('potassium', '<p class="alert alert-danger">:message</p>') !!}
+            </div>
+            <div class="form-group">
+                <input type="file" name="photo">
+                {!! $errors->first('photo', '<p class="alert alert-danger">:message</p>') !!}
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Publish</button>

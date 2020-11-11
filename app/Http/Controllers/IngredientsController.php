@@ -12,7 +12,7 @@ class IngredientsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
     /**
      * Display a listing of the resource.
@@ -63,16 +63,26 @@ class IngredientsController extends Controller
             'calcium'=>'required|numeric|min:0|not_in:0',
             'iron'=>'required|numeric|min:0|not_in:0',
             'potassium'=>'required|numeric|min:0|not_in:0',
+            'photo'=>'image'
         ]);
 
         $nutrition = new Nutrition(request(['calories','fat','saturatedFat','transFat','cholestrol','sodium','carbohydrate','dietaryFiber','sugar','protein','vitaminD','calcium','iron','potassium']));
         $nutrition->save();        
         
-
         $ingredient = new Ingredients(request(['name','description','shelfLife',$nutrition->id]));
         $ingredient->nutrition_id = $nutrition->id;
 
         $ingredient->save();
+
+        $file = $request->file('photo');
+        $file_name = $file->getClientOriginalName();
+        $file_size = round($file->getSize() / 1024);
+        $file_ex = $file->getClientOriginalExtension();
+        $file_mime = $file->getMimeType();
+
+        $newname = strtolower($ingredient->name);
+        // BETTER HARD TO TO BE .JPG FILE
+        $file->move('images', $newname.'.'.$file_ex);
 
         session()->flash(
             'message','You have successfully added ingredient.'  
@@ -122,6 +132,28 @@ class IngredientsController extends Controller
         $ingredient = Ingredients::find($id);
         $nutrition = Nutrition::find($ingredient->nutrition_id);
 
+        $validatedData = $request->validate([
+            'name' => 'required|max:255|unique:ingredients,name,'.$id,
+            'description' => 'required|max:255',
+            'shelfLife' => 'required|numeric|min:0|not_in:0',
+            'medical_condition_id'=>'required|numeric|min:0|not_in:0',
+            'calories'=>'required|numeric|min:0|not_in:0',
+            'fat'=>'required|numeric|min:0|not_in:0',
+            'saturatedFat'=>'required|numeric|min:0|not_in:0',
+            'transFat'=>'required|numeric|min:0|not_in:0',
+            'cholestrol'=>'required|numeric|min:0|not_in:0',
+            'sodium'=>'required|numeric|min:0|not_in:0',
+            'carbohydrate'=>'required|numeric|min:0|not_in:0',
+            'dietaryFiber'=>'required|numeric|min:0|not_in:0',
+            'sugar'=>'required|numeric|min:0|not_in:0',
+            'protein'=>'required|numeric|min:0|not_in:0',
+            'vitaminD'=>'required|numeric|min:0|not_in:0',
+            'calcium'=>'required|numeric|min:0|not_in:0',
+            'iron'=>'required|numeric|min:0|not_in:0',
+            'potassium'=>'required|numeric|min:0|not_in:0',
+            'photo'=>'image',
+        ]);
+
         $ingredient->medical_condition_id = $request->input('medical_condition_id');
         $ingredient->name = $request->input('name');
         $ingredient->description = $request->input('description');
@@ -137,13 +169,35 @@ class IngredientsController extends Controller
         $nutrition->dietaryFiber = $request->input('dietaryFiber');
         $nutrition->sugar = $request->input('sugar');
         $nutrition->protein = $request->input('protein');
-        $nutrition->protein = $request->input('vitaminD');
-        $nutrition->protein = $request->input('calcium');
-        $nutrition->protein = $request->input('iron');
-        $nutrition->protein = $request->input('potassium');
+        $nutrition->vitaminD = $request->input('vitaminD');
+        $nutrition->calcium = $request->input('calcium');
+        $nutrition->iron = $request->input('iron');
+        $nutrition->potassium = $request->input('potassium');
 
         $ingredient->save();
         $nutrition->save();
+
+        
+        if($request->hasFile('photo')){        
+            $path = 'images/';
+  
+            //code for remove old file
+            if($ingredient->name != ''  && $ingredient->name != null){
+                 $file_old = $path.$ingredient->name.'.jpg';
+                 unlink($file_old);
+            }
+  
+            $file = $request->file('photo');
+            $file_name = $file->getClientOriginalName();
+            $file_size = round($file->getSize() / 1024);
+            $file_ex = $file->getClientOriginalExtension();
+            $file_mime = $file->getMimeType();
+    
+            $newname = strtolower($ingredient->name);
+            $file->move('images', $newname.'.'.$file_ex);
+       }
+  
+
 
         return redirect('/ingredients');
     }

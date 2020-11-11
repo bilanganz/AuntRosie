@@ -12,7 +12,7 @@
 
                 <h1>Edit {{ $ingredient->name }} Information</h1>
 
-                <form method="post" action="/ingredients/{{$ingredient->id}}">
+                <form method="post" action="/ingredients/{{$ingredient->id}}" enctype="multipart/form-data">
                     {{ method_field('put') }}
                     {{csrf_field()}}
                     <div class="form-group">
@@ -109,6 +109,10 @@
                         <label for="potassium">Potassium:</label>
                         <input type="text" class="form-control" id="potassium" name="potassium" @if(isset($nutrition)) value="{{ $nutrition->potassium }}" @elseif(!$errors->has('potassium')) value="{{ old('potassium') }}" @endif>
                         {!! $errors->first('potassium', '<p class="alert alert-danger">:message</p>') !!}
+                    </div>
+                    <div class="form-group">
+                        <input type="file" name="photo">
+                        {!! $errors->first('photo', '<p class="alert alert-danger">:message</p>') !!}
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Publish</button>

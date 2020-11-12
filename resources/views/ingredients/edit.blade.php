@@ -115,7 +115,7 @@
                         {!! $errors->first('photo', '<p class="alert alert-danger">:message</p>') !!}
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Publish</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
                     </div>
                 </form>
             </div>

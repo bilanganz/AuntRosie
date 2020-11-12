@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    {{ $customer->firstName . ' ' . $customer->lastName }} Show
+    {{ $medicalCondition->name }} Show
 @endsection
 
 @section('content')
@@ -10,29 +10,17 @@
         <div class="row justify-content-md-center">
             <div class="col-md-8">
 
-                <h1>Showing {{ $customer->firstName . ' ' . $customer->lastName }} Information</h1>
+                <h1>Showing {{ $medicalCondition->name }} Information</h1>
 
                 <table class="table">
                     <tbody>
                         <tr>
-                        <th scope="row">First Name</th>
-                        <td>{{ $customer->firstName }}</td>
+                        <th scope="row">Name</th>
+                        <td>{{ $medicalCondition->name }}</td>
                         </tr>
                         <tr>
-                        <th scope="row">Last Name</th>
-                        <td>{{ $customer->lastName }} weeks</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">Date of Birth</th>
-                        <td>{{ $customer->DOB }}</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">Email</th>
-                        <td>{{ $customer->email }}</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">Phone Number</th>
-                        <td>{{ $customer->phoneNumber }}</td>
+                        <th scope="row">Description</th>
+                        <td>{{ $medicalCondition->description }} weeks</td>
                         </tr>
                     </tbody>
                 </table>

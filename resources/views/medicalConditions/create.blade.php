@@ -1,42 +1,27 @@
 @extends('layouts.master')
 
-@section('title', 'Create Customer')
+@section('title', 'Create Medical Condition')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-md-center">
-    <div class="col-sm-5">
-        <h1>Insert New Customer</h1>
-        <hr>
-        <form method="POST" action="/customers" enctype="multipart/form-data">
-            {{csrf_field()}}
-            <div class="form-group">
-                <label for="firstName">First Name:</label>
-                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" @if(!$errors->has('firstName')) value="{{ old('firstName') }}" @endif>
-                {!! $errors->first('firstName', '<p class="alert alert-danger">:message</p>') !!}
-            </div>
-            <div class="form-group">
-                <label for="lastName">Last Name:</label>
-                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" @if(!$errors->has('lastName')) value="{{ old('lastName') }}" @endif>
-                {!! $errors->first('lastName', '<p class="alert alert-danger">:message</p>') !!}
-            </div>
-            <div class="form-group">
-                <label for="DOB">Date of Birth:</label>
-                <input type="date" class="form-control" id="DOB" name="DOB" @if(!$errors->has('DOB')) value="{{ old('DOB') }}" @endif>
-                {!! $errors->first('DOB', '<p class="alert alert-danger">:message</p>') !!}
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="text" class="form-control" id="email" name="email" placeholder="Email" @if(!$errors->has('email')) value="{{ old('email') }}" @endif>
-                {!! $errors->first('email', '<p class="alert alert-danger">:message</p>') !!}
-            </div>
-            <div class="form-group">
-                <label for="phoneNumber">Phone Number:</label>
-                <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" @if(!$errors->has('phoneNumber')) value="{{ old('phoneNumber') }}" @endif>
-                {!! $errors->first('phoneNumber', '<p class="alert alert-danger">:message</p>') !!}
-            </div>
-        </form>
-    </div>
+        <div class="col-sm-5">
+            <h1>Insert New Medical Condition</h1>
+            <hr>
+            <form method="POST" action="/medicalConditions" enctype="multipart/form-data">
+                {{csrf_field()}}
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Name" @if(!$errors->has('name')) value="{{ old('name') }}" @endif>
+                    {!! $errors->first('name', '<p class="alert alert-danger">:message</p>') !!}
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <input type="text" class="form-control" id="description" name="description" placeholder="Description" @if(!$errors->has('description')) value="{{ old('description') }}" @endif>
+                    {!! $errors->first('description', '<p class="alert alert-danger">:message</p>') !!}
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 @stop

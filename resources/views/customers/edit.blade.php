@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    {{ $ingredient->name }} Edit
+    {{ $customer->firstName . ' ' . $customer->lastName }} Edit
 @endsection
 
 @section('content')
@@ -10,9 +10,9 @@
         <div class="row justify-content-md-center">
             <div class="col-md-8">
 
-                <h1>Edit {{ $ingredient->name }} Information</h1>
+                <h1>Edit {{ $customer->firstName . ' ' . $customer->lastName }} Information</h1>
 
-                <form method="post" action="/ingredients/{{$ingredient->id}}" enctype="multipart/form-data">
+                <form method="post" action="/customers/{{$customer->id}}" enctype="multipart/form-data">
                     {{ method_field('put') }}
                     {{csrf_field()}}
                     <div class="form-group">

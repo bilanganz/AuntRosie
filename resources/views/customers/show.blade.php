@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    {{ $ingredient->name }} Show
+    {{ $customer->firstName . ' ' . $customer->lastName }} Show
 @endsection
 
 @section('content')
@@ -10,73 +10,29 @@
         <div class="row justify-content-md-center">
             <div class="col-md-8">
 
-                <h1>Showing {{ $ingredient->name }} Information</h1>
+                <h1>Showing {{ $customer->firstName . ' ' . $customer->lastName }} Information</h1>
 
                 <table class="table">
                     <tbody>
                         <tr>
-                        <th scope="row">Description</th>
-                        <td>{{ $ingredient->description }}</td>
+                        <th scope="row">First Name</th>
+                        <td>{{ $customer->firstName }}</td>
                         </tr>
                         <tr>
-                        <th scope="row">Shelf Life</th>
-                        <td>{{ $ingredient->shelfLife }} weeks</td>
+                        <th scope="row">Last Name</th>
+                        <td>{{ $customer->lastName }} weeks</td>
                         </tr>
                         <tr>
-                        <th scope="row">Calories</th>
-                        <td>{{ $nutrition->calories }}</td>
+                        <th scope="row">Date of Birth</th>
+                        <td>{{ $customer->DOB }}</td>
                         </tr>
                         <tr>
-                        <th scope="row">Fat</th>
-                        <td>{{ $nutrition->fat }}</td>
+                        <th scope="row">Email</th>
+                        <td>{{ $customer->email }}</td>
                         </tr>
                         <tr>
-                        <th scope="row">Saturated Fat</th>
-                        <td>{{ $nutrition->saturatedFat }}</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">Trans Fat</th>
-                        <td>{{ $nutrition->transFat }}</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">Cholestrol</th>
-                        <td>{{ $nutrition->cholestrol }}</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">Sodium</th>
-                        <td>{{ $nutrition->sodium }}</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">Carbohydrate</th>
-                        <td>{{ $nutrition->carbohydrate }}</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">Dietary Fiber</th>
-                        <td>{{ $nutrition->dietaryFiber }}</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">sugar</th>
-                        <td>{{ $nutrition->sugar }}</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">protein</th>
-                        <td>{{ $nutrition->protein }}</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">vitamin D</th>
-                        <td>{{ $nutrition->vitaminD }}</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">Calcium</th>
-                        <td>{{ $nutrition->calcium }}</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">Iron</th>
-                        <td>{{ $nutrition->iron }}</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">Potassium</th>
-                        <td>{{ $nutrition->potassium }}</td>
+                        <th scope="row">Phone Number</th>
+                        <td>{{ $customer->phoneNumber }}</td>
                         </tr>
                     </tbody>
                 </table>

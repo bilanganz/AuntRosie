@@ -12,9 +12,9 @@ class Ingredients extends Model
 
     use HasFactory;
 
-    public function medicalCondition()
+    public function medicalConditions()
     {
-        return $this->hasOne(medicalCondition::class);
+        return $this->hasOne(medicalConditions::class);
     }
 
     public function nutrition()

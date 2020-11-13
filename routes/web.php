@@ -32,6 +32,6 @@ Route::get('/ingredients/{ingredients}', 'App\Http\Controllers\IngredientsContro
 Route::get('/ingredients/{ingredients}/edit', 'App\Http\Controllers\IngredientsController@edit');
 Route::put('/ingredients/{ingredients}','App\Http\Controllers\IngredientsController@update');
 
-
+Route::get('/medicalConditions', 'App\Http\Controllers\MedicalConditionsController@index');
 
 Route::post('/ingredients','App\Http\Controllers\IngredientsController@store');

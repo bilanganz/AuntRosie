@@ -3,17 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\MedicalConditions;
 
-class MedicalConditionController extends Controller
+class MedicalConditionsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(MedicalConditions $medicalConditions)
     {
-        //
+        $medicalConditions = $medicalConditions::all();
+        return view('medicalConditions.index',compact('medicalConditions'));
     }
 
     /**

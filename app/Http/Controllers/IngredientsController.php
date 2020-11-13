@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Ingredients;
 use App\Models\Nutrition;
-use App\Models\MedicalCondition;
+use App\Models\MedicalConditions;
 
 
 class IngredientsController extends Controller
@@ -32,7 +32,7 @@ class IngredientsController extends Controller
      */
     public function create()
     {
-        $medicalConditions = MedicalCondition::all();
+        $medicalConditions = MedicalConditions::all();
         return view('ingredients.create', compact('medicalConditions'));
     }
 

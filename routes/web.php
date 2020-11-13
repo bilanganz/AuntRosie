@@ -26,12 +26,13 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/credit', function() {return view('credit');});
 
-Route::get('/ingredients', 'App\Http\Controllers\IngredientsController@index');
-Route::get('/ingredients/create', 'App\Http\Controllers\IngredientsController@create');
-Route::get('/ingredients/{ingredients}', 'App\Http\Controllers\IngredientsController@show');
-Route::get('/ingredients/{ingredients}/edit', 'App\Http\Controllers\IngredientsController@edit');
-Route::put('/ingredients/{ingredients}','App\Http\Controllers\IngredientsController@update');
+Route::get('/ingredients', 'IngredientsController@index');
+Route::get('/ingredients/create', 'IngredientsController@create');
+Route::get('/ingredients/{ingredients}', 'IngredientsController@show');
+Route::get('/ingredients/{ingredients}/edit', 'IngredientsController@edit');
+Route::put('/ingredients/{ingredients}','IngredientsController@update');
 
-Route::get('/medicalConditions', 'App\Http\Controllers\MedicalConditionsController@index');
+Route::get('/medicalConditions', 'MedicalConditionsController@index');
+Route::get('/medicalConditions/create', 'MedicalConditionsController@create');
 
 Route::post('/ingredients','App\Http\Controllers\IngredientsController@store');

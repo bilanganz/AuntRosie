@@ -25,7 +25,7 @@ class MedicalConditionsController extends Controller
      */
     public function create()
     {
-        //
+        return view('medicalConditions.create');
     }
 
     /**

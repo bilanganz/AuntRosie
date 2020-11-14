@@ -199,7 +199,7 @@ class IngredientsController extends Controller
   
 
 
-        return redirect('/ingredients');
+       return redirect()->action([IngredientsController::class, 'index']);
     }
 
     /**

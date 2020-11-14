@@ -36,7 +36,15 @@ class MedicalConditionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|unique:medical_conditions|max:255',
+            'description' => 'required|max:255'
+        ]);
+
+        $medicalCondition = new MedicalConditions(request(['name','description']));
+        $medicalCondition->save();  
+
+        return redirect()->action([MedicalConditionsController::class, 'index']);
     }
 
     /**
@@ -47,7 +55,9 @@ class MedicalConditionsController extends Controller
      */
     public function show($id)
     {
-        //
+        $medicalCondition = MedicalConditions::find($id);
+
+        return view('medicalConditions.show', compact(['medicalCondition']));
     }
 
     /**
@@ -58,7 +68,9 @@ class MedicalConditionsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $medicalCondition = MedicalConditions::find($id);
+
+        return view('medicalConditions.edit', compact(['medicalCondition']));
     }
 
     /**
@@ -70,7 +82,20 @@ class MedicalConditionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $medicalCondition = MedicalConditions::find($id);
+
+        $validatedData = $request->validate([
+            'name' => 'required|max:255|unique:medical_conditions,name,'.$id,
+            'description' => 'required|max:255'
+        ]);
+
+        $medicalCondition->name = $request->input('name');
+        $medicalCondition->description = $request->input('description');
+
+        $medicalCondition->save();
+
+        return redirect()->action([MedicalConditionsController::class, 'index']);
+
     }
 
     /**

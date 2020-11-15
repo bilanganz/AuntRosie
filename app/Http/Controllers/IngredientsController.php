@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Ingredients;
 use App\Models\Nutrition;
 use App\Models\MedicalConditions;
+use DB;
 
 
 class IngredientsController extends Controller
@@ -196,9 +197,6 @@ class IngredientsController extends Controller
             $newname = strtolower($ingredient->name);
             $file->move('images', $newname.'.'.$file_ex);
        }
-  
-
-
        return redirect()->action([IngredientsController::class, 'index']);
     }
 
@@ -210,6 +208,17 @@ class IngredientsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // DELETE INGREDIENTS
+        $ingredient = Ingredients::find($id);
+        $ingredient->delete();
+
+        // DELETE NUTRITION
+        $nutrition = Nutrition::find($ingredient->nutrition_id);
+        $nutrition->delete();
+
+        // DELETE INGREDIENTS IN JOIN TABLE
+        DB::table('ingredient_recipes')->where('ingredient_id',$id)->delete();
+
+        return redirect()->action([IngredientsController::class, 'index']);
     }
 }

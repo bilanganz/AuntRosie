@@ -8,6 +8,11 @@
         <div class="btn-group">
             <a class="btn btn-primary btn-sm btn-outline-secondary" href="{{ URL::to('ingredients/' . $ingredient->id) }}" role="button">View</a>
             <a class="btn btn-primary btn-sm btn-outline-secondary" href="{{ URL::to('ingredients/' . $ingredient->id) . '/edit' }}" role="button">Edit</a>
+            <form action="{{ URL::to('/ingredients/destroy/'.$ingredient->id) }}" method="POST">
+                {{ csrf_field() }}
+                {{ method_field('DELETE') }}
+                <button class="btn btn-primary btn-sm btn-outline-secondary" onclick="return confirm('Are you sure?')" type="submit">Delete</button>
+            </form>
         </div>
         <small class="text-muted">{{ $ingredient->shelfLife }} days</small>
         </div>

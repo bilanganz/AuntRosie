@@ -31,6 +31,7 @@ Route::get('/ingredients/create', 'IngredientsController@create');
 Route::get('/ingredients/{ingredients}', 'IngredientsController@show');
 Route::get('/ingredients/{ingredients}/edit', 'IngredientsController@edit');
 Route::put('/ingredients/{ingredients}','IngredientsController@update');
+Route::delete('/ingredients/destroy/{ingredients}','IngredientsController@destroy');
 
 Route::get('/medicalConditions', 'MedicalConditionsController@index');
 Route::get('/medicalConditions/create', 'MedicalConditionsController@create');

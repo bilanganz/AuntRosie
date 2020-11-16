@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Customers extends Model
 {
+    protected $guarded =[];
+    public $timestamps = false;
+
     use HasFactory;
 
     public function sales()

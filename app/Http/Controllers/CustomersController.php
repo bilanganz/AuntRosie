@@ -46,7 +46,7 @@ class CustomersController extends Controller
             'lastName' => 'required|max:255',
             'DOB' => 'required|date',
             'email' => 'required|email|max:255',
-            'phoneNumber' => 'required|regex:/(01)[0-9]{9}/'
+            'phoneNumber' => 'required|regex:/[0-9]{10}/|max:10'
         ]);
 
         $customer = new customers(request(['firstName','lastName','DOB','email','phoneNumber']));
@@ -97,7 +97,7 @@ class CustomersController extends Controller
             'lastName' => 'required|max:255',
             'DOB' => 'required|date',
             'email' => 'required|email|max:255',
-            'phoneNumber' => 'required|regex:/(01)[0-9]{9}/'
+            'phoneNumber' => 'required|regex:/[0-9]{10}/|max:10'
         ]);
 
         $customer->firstName = $request->input('firstName');

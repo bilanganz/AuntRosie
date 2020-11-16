@@ -27,13 +27,18 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/credit', function() {return view('credit');});
 
 Route::get('/ingredients', 'IngredientsController@index');
+Route::post('/ingredients','IngredientsController@store');
 Route::get('/ingredients/create', 'IngredientsController@create');
-Route::get('/ingredients/{ingredients}', 'IngredientsController@show');
-Route::get('/ingredients/{ingredients}/edit', 'IngredientsController@edit');
-Route::put('/ingredients/{ingredients}','IngredientsController@update');
-Route::delete('/ingredients/destroy/{ingredients}','IngredientsController@destroy');
+Route::get('/ingredients/{ingredient}', 'IngredientsController@show');
+Route::get('/ingredients/{ingredient}/edit', 'IngredientsController@edit');
+Route::put('/ingredients/{ingredient}','IngredientsController@update');
+Route::delete('/ingredients/destroy/{ingredient}','IngredientsController@destroy');
 
 Route::get('/medicalConditions', 'MedicalConditionsController@index');
+Route::post('/medicalConditions','MedicalConditionsController@store');
 Route::get('/medicalConditions/create', 'MedicalConditionsController@create');
+Route::get('/medicalConditions/{medicalCondition}', 'MedicalConditionsController@show');
+Route::get('/medicalConditions/{medicalCondition}/edit', 'MedicalConditionsController@edit');
+Route::put('/medicalConditions/{medicalCondition}','MedicalConditionsController@update');
+Route::delete('/medicalConditions/destroy/{medicalCondition}','MedicalConditionsController@destroy');
 
-Route::post('/ingredients','App\Http\Controllers\IngredientsController@store');

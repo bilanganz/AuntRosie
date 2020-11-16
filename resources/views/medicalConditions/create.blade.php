@@ -20,6 +20,9 @@
                     <input type="text" class="form-control" id="description" name="description" placeholder="Description" @if(!$errors->has('description')) value="{{ old('description') }}" @endif>
                     {!! $errors->first('description', '<p class="alert alert-danger">:message</p>') !!}
                 </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Publish</button>
+                </div>
             </form>
         </div>
     </div>

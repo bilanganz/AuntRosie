@@ -106,6 +106,10 @@ class MedicalConditionsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // DELETE MEDICAL CONDITIONS
+        $medicalCondition = MedicalConditions::find($id);
+        $medicalCondition->delete();
+
+        return redirect()->action([MedicalConditionsController::class, 'index']);
     }
 }

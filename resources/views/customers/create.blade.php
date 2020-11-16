@@ -35,6 +35,9 @@
                     <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" @if(!$errors->has('phoneNumber')) value="{{ old('phoneNumber') }}" @endif>
                     {!! $errors->first('phoneNumber', '<p class="alert alert-danger">:message</p>') !!}
                 </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Publish</button>
+                </div>
             </form>
         </div>
     </div>

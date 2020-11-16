@@ -42,3 +42,11 @@ Route::get('/medicalConditions/{medicalCondition}/edit', 'MedicalConditionsContr
 Route::put('/medicalConditions/{medicalCondition}','MedicalConditionsController@update');
 Route::delete('/medicalConditions/destroy/{medicalCondition}','MedicalConditionsController@destroy');
 
+Route::get('/customers', 'CustomersController@index');
+Route::post('/customers','CustomersController@store');
+Route::get('/customers/create', 'CustomersController@create');
+Route::get('/customers/{customer}', 'CustomersController@show');
+Route::get('/customers/{customer}/edit', 'CustomersController@edit');
+Route::put('/customers/{customer}','CustomersController@update');
+Route::delete('/customers/destroy/{customer}','CustomersController@destroy');
+

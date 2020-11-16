@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Recipes;
 
 class RecipesController extends Controller
 {
@@ -13,7 +14,8 @@ class RecipesController extends Controller
      */
     public function index(Recipes $recipes)
     {
-        $recipes = $recipes->all();
+        $recipes = $recipes::all();
+        return view('recipes.index',compact('recipes'));
     }
 
     /**
@@ -23,7 +25,8 @@ class RecipesController extends Controller
      */
     public function create()
     {
-        //
+        $ingredients = Ingredients::all();
+        return view('recipes.create', compact('ingredients'));
     }
 
     /**
@@ -34,7 +37,15 @@ class RecipesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|unique:ingredients|max:255',
+            'description' => 'required|max:255',
+            'ingredients' => 'required',
+            'quantity' => 'required'
+        ]);
+
+        $user->tasks()->sync([5,6,7,8], false); 
+        $user->tasks()->getRelatedIds();
     }
 
     /**

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Ingredients;
-use App\Models\Nutrition;
+use App\Models\Nutritions;
 use App\Models\MedicalConditions;
 use DB;
 
@@ -67,7 +67,7 @@ class IngredientsController extends Controller
             'photo'=>'image'
         ]);
 
-        $nutrition = new Nutrition(request(['calories','fat','saturatedFat','transFat','cholestrol','sodium','carbohydrate','dietaryFiber','sugar','protein','vitaminD','calcium','iron','potassium']));
+        $nutrition = new Nutritions(request(['calories','fat','saturatedFat','transFat','cholestrol','sodium','carbohydrate','dietaryFiber','sugar','protein','vitaminD','calcium','iron','potassium']));
         $nutrition->save();        
         
         $ingredient = new Ingredients(request(['name','description','shelfLife',$nutrition->id]));
@@ -101,7 +101,7 @@ class IngredientsController extends Controller
     public function show($id)
     {
         $ingredient = Ingredients::find($id);
-        $nutrition = Nutrition::find($ingredient->nutrition_id);
+        $nutrition = Nutritions::find($ingredient->nutrition_id);
 
         return view('ingredients.show', compact(['ingredient','nutrition']));
     }
@@ -115,7 +115,7 @@ class IngredientsController extends Controller
     public function edit($id)
     {
         $ingredient = Ingredients::find($id);
-        $nutrition = Nutrition::find($ingredient->nutrition_id);
+        $nutrition = Nutritions::find($ingredient->nutrition_id);
         $medicalConditions = MedicalCondition::all();
 
         return view('ingredients.edit', compact(['ingredient','nutrition','medicalConditions']));
@@ -131,7 +131,7 @@ class IngredientsController extends Controller
     public function update(Request $request, $id)
     {
         $ingredient = Ingredients::find($id);
-        $nutrition = Nutrition::find($ingredient->nutrition_id);
+        $nutrition = Nutritions::find($ingredient->nutrition_id);
 
         $validatedData = $request->validate([
             'name' => 'required|max:255|unique:ingredients,name,'.$id,
@@ -213,7 +213,7 @@ class IngredientsController extends Controller
         $ingredient->delete();
 
         // DELETE NUTRITION
-        $nutrition = Nutrition::find($ingredient->nutrition_id);
+        $nutrition = Nutritions::find($ingredient->nutrition_id);
         $nutrition->delete();
 
         // DELETE INGREDIENTS IN JOIN TABLE

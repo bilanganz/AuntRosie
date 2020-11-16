@@ -9,9 +9,9 @@ class Inventory extends Model
 {
     use HasFactory;
 
-    public function recipe()
+    public function recipes()
     {
-        return $this->hasMany(recipe::class);
+        return $this->hasMany(recipes::class);
     }
 
     public function sales()

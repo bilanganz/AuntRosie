@@ -5,12 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Stock extends Model
+class Nutritions extends Model
 {
+    protected $guarded =[];
+    public $timestamps = false;
+
     use HasFactory;
 
     public function ingredients()
     {
-        return $this->hasMany(ingredients::class);
+        return $this->belongsTo(ingredients::class);
     }
 }

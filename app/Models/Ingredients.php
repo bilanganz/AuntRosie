@@ -17,18 +17,18 @@ class Ingredients extends Model
         return $this->hasOne(medicalConditions::class);
     }
 
-    public function nutrition()
+    public function nutritions()
     {
-        return $this->hasOne(nutrition::class);
+        return $this->hasOne(nutritions::class);
     }
 
-    public function stock()
+    public function stocks()
     {
-        return $this->belongsTo(stock::class);
+        return $this->belongsTo(stocks::class);
     }
 
-    public function recipe()
+    public function recipes()
     {
-        return $this->belongsToMany(recipe::class);
+        return $this->belongsToMany(recipes::class);
     }
 }

@@ -3,19 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Recipes;
+use App\Models\Stocks;
 
-class RecipesController extends Controller
+class StockController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Recipes $recipes)
+    public function index(Stocks $stocks)
     {
-        $recipes = $recipes::all();
-        return view('recipes.index',compact('recipes'));
+        $stocks = $stocks::all();
+        return view('stocks.index',compact('stocks'));
     }
 
     /**
@@ -26,7 +26,7 @@ class RecipesController extends Controller
     public function create()
     {
         $ingredients = Ingredients::all();
-        return view('recipes.create', compact('ingredients'));
+        return view('stocks.create', compact('ingredients'));
     }
 
     /**
@@ -38,14 +38,14 @@ class RecipesController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|unique:ingredients|max:255',
-            'description' => 'required|max:255',
-            'ingredients' => 'required',
-            'quantity' => 'required'
+            'ingredient_id'=>'required|numeric|min:0|not_in:0',
+            'quantity'=>'required|numeric|min:0|not_in:0'
         ]);
 
-        $user->tasks()->sync([5,6,7,8], false); 
-        $user->tasks()->getRelatedIds();
+        $stock =  new Stocks(request(['ingredient_id','quantity']));
+        $stock->save();
+
+        return redirect()->action([StocksController::class, 'index']);
     }
 
     /**
@@ -56,7 +56,9 @@ class RecipesController extends Controller
      */
     public function show($id)
     {
-        //
+        $stock = Stocks::find($id);
+
+        return view('stocks.show', compact(['stock']));
     }
 
     /**
@@ -67,7 +69,10 @@ class RecipesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $stock = Stocks::find($id);
+        $ingredients = Ingredients::all();
+
+        return view('stocks.show', compact(['stock','ingredients']));
     }
 
     /**
@@ -79,7 +84,19 @@ class RecipesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $stock = Stocks::find($id);
+
+        $validatedData = $request->validate([
+            'ingredient_id'=>'required|numeric|min:0|not_in:0',
+            'quantity'=>'required|numeric|min:0|not_in:0'
+        ]);
+
+        $stock->ingredient_id = $request->input('ingredient_id');
+        $stock->quantity = $request->input('quantity');
+
+        $stock->save();
+
+        return redirect()->action([StocksController::class, 'index']);
     }
 
     /**
@@ -90,6 +107,9 @@ class RecipesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $stock = Stocks::find($id);
+        $stock->delete();
+
+        return redirect()->action([StocksController::class, 'index']);
     }
 }

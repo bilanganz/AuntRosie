@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\MedicalConditions;
 
-class MedicalConditionsController extends Controller
+class MedicalConditionController extends Controller
 {
     public function __construct()
     {
@@ -49,7 +49,7 @@ class MedicalConditionsController extends Controller
         $medicalCondition = new MedicalConditions(request(['name','description']));
         $medicalCondition->save();  
 
-        return redirect()->action([MedicalConditionsController::class, 'index']);
+        return redirect()->action([MedicalConditionController::class, 'index']);
     }
 
     /**
@@ -99,7 +99,7 @@ class MedicalConditionsController extends Controller
 
         $medicalCondition->save();
 
-        return redirect()->action([MedicalConditionsController::class, 'index']);
+        return redirect()->action([MedicalConditionController::class, 'index']);
 
     }
 
@@ -115,6 +115,6 @@ class MedicalConditionsController extends Controller
         $medicalCondition = MedicalConditions::find($id);
         $medicalCondition->delete();
 
-        return redirect()->action([MedicalConditionsController::class, 'index']);
+        return redirect()->action([MedicalConditionController::class, 'index']);
     }
 }

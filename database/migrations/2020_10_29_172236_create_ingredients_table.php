@@ -21,7 +21,7 @@ class CreateIngredientsTable extends Migration
             $table->string('description');
             $table->bigInteger('shelfLife');
             $table->foreign('medical_condition_id')->references('id')->on('medical_conditions');
-            $table->foreign('nutrition_id')->references('id')->on('nutrition');
+            $table->foreign('nutrition_id')->references('id')->on('nutritions');
         });
     }
 

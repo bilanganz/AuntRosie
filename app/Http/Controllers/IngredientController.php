@@ -9,7 +9,7 @@ use App\Models\MedicalConditions;
 use DB;
 
 
-class IngredientsController extends Controller
+class IngredientController extends Controller
 {
     public function __construct()
     {
@@ -52,22 +52,22 @@ class IngredientsController extends Controller
             'medical_condition_id'=>'required|numeric|min:0|not_in:0',
             'calories'=>'required|numeric|min:0|not_in:0',
             'fat'=>'required|numeric|min:0|not_in:0',
-            'saturatedFat'=>'required|numeric|min:0|not_in:0',
-            'transFat'=>'required|numeric|min:0|not_in:0',
+            'saturated_fat'=>'required|numeric|min:0|not_in:0',
+            'trans_fat'=>'required|numeric|min:0|not_in:0',
             'cholestrol'=>'required|numeric|min:0|not_in:0',
             'sodium'=>'required|numeric|min:0|not_in:0',
             'carbohydrate'=>'required|numeric|min:0|not_in:0',
-            'dietaryFiber'=>'required|numeric|min:0|not_in:0',
+            'dietary_fiber'=>'required|numeric|min:0|not_in:0',
             'sugar'=>'required|numeric|min:0|not_in:0',
             'protein'=>'required|numeric|min:0|not_in:0',
-            'vitaminD'=>'required|numeric|min:0|not_in:0',
+            'vitamin_d'=>'required|numeric|min:0|not_in:0',
             'calcium'=>'required|numeric|min:0|not_in:0',
             'iron'=>'required|numeric|min:0|not_in:0',
             'potassium'=>'required|numeric|min:0|not_in:0',
             'photo'=>'image'
         ]);
 
-        $nutrition = new Nutritions(request(['calories','fat','saturatedFat','transFat','cholestrol','sodium','carbohydrate','dietaryFiber','sugar','protein','vitaminD','calcium','iron','potassium']));
+        $nutrition = new Nutritions(request(['calories','fat','saturated_fat','trans_fat','cholestrol','sodium','carbohydrate','dietary_fiber','sugar','protein','vitamin_d','calcium','iron','potassium']));
         $nutrition->save();        
         
         $ingredient = new Ingredients(request(['name','description','shelfLife',$nutrition->id]));
@@ -75,21 +75,23 @@ class IngredientsController extends Controller
 
         $ingredient->save();
 
-        $file = $request->file('photo');
-        $file_name = $file->getClientOriginalName();
-        $file_size = round($file->getSize() / 1024);
-        $file_ex = $file->getClientOriginalExtension();
-        $file_mime = $file->getMimeType();
+        if($request->hasFile('photo'))
+        {
+            $file = $request->file('photo');
+            $file_name = $file->getClientOriginalName();
+            $file_size = round($file->getSize() / 1024);
+            $file_ex = $file->getClientOriginalExtension();
+            $file_mime = $file->getMimeType();
 
-        $newname = strtolower($ingredient->name);
-        // BETTER HARD TO TO BE .JPG FILE
-        $file->move('images', $newname.'.'.$file_ex);
-
+            $newname = strtolower($ingredient->name);
+            // BETTER HARD TO TO BE .JPG FILE
+            $file->move('images', $newname.'.'.$file_ex);
+        }
         session()->flash(
             'message','You have successfully added ingredient.'  
         );
 
-        return redirect()->action([IngredientsController::class, 'index']);
+        return redirect()->action([IngredientController::class, 'index']);
     }
 
     /**
@@ -116,7 +118,7 @@ class IngredientsController extends Controller
     {
         $ingredient = Ingredients::find($id);
         $nutrition = Nutritions::find($ingredient->nutrition_id);
-        $medicalConditions = MedicalCondition::all();
+        $medicalConditions = MedicalConditions::all();
 
         return view('ingredients.edit', compact(['ingredient','nutrition','medicalConditions']));
     }
@@ -140,15 +142,15 @@ class IngredientsController extends Controller
             'medical_condition_id'=>'required|numeric|min:0|not_in:0',
             'calories'=>'required|numeric|min:0|not_in:0',
             'fat'=>'required|numeric|min:0|not_in:0',
-            'saturatedFat'=>'required|numeric|min:0|not_in:0',
-            'transFat'=>'required|numeric|min:0|not_in:0',
+            'saturated_fat'=>'required|numeric|min:0|not_in:0',
+            'trans_fat'=>'required|numeric|min:0|not_in:0',
             'cholestrol'=>'required|numeric|min:0|not_in:0',
             'sodium'=>'required|numeric|min:0|not_in:0',
             'carbohydrate'=>'required|numeric|min:0|not_in:0',
-            'dietaryFiber'=>'required|numeric|min:0|not_in:0',
+            'dietary_fiber'=>'required|numeric|min:0|not_in:0',
             'sugar'=>'required|numeric|min:0|not_in:0',
             'protein'=>'required|numeric|min:0|not_in:0',
-            'vitaminD'=>'required|numeric|min:0|not_in:0',
+            'vitamin_d'=>'required|numeric|min:0|not_in:0',
             'calcium'=>'required|numeric|min:0|not_in:0',
             'iron'=>'required|numeric|min:0|not_in:0',
             'potassium'=>'required|numeric|min:0|not_in:0',
@@ -162,15 +164,15 @@ class IngredientsController extends Controller
         
         $nutrition->calories = $request->input('calories');
         $nutrition->fat = $request->input('fat');
-        $nutrition->saturatedFat = $request->input('saturatedFat');
-        $nutrition->transFat = $request->input('transFat');
+        $nutrition->saturated_fat = $request->input('saturated_fat');
+        $nutrition->trans_fat = $request->input('trans_fat');
         $nutrition->cholestrol = $request->input('cholestrol');
         $nutrition->sodium = $request->input('sodium');
         $nutrition->carbohydrate = $request->input('carbohydrate');
-        $nutrition->dietaryFiber = $request->input('dietaryFiber');
+        $nutrition->dietary_fiber = $request->input('dietary_fiber');
         $nutrition->sugar = $request->input('sugar');
         $nutrition->protein = $request->input('protein');
-        $nutrition->vitaminD = $request->input('vitaminD');
+        $nutrition->vitamin_d = $request->input('vitamin_d');
         $nutrition->calcium = $request->input('calcium');
         $nutrition->iron = $request->input('iron');
         $nutrition->potassium = $request->input('potassium');
@@ -185,7 +187,9 @@ class IngredientsController extends Controller
             //code for remove old file
             if($ingredient->name != ''  && $ingredient->name != null){
                  $file_old = $path.$ingredient->name.'.jpg';
-                 unlink($file_old);
+
+                 if(file_exists($file_old))
+                    unlink($file_old);
             }
   
             $file = $request->file('photo');
@@ -197,7 +201,7 @@ class IngredientsController extends Controller
             $newname = strtolower($ingredient->name);
             $file->move('images', $newname.'.'.$file_ex);
        }
-       return redirect()->action([IngredientsController::class, 'index']);
+       return redirect()->action([IngredientController::class, 'index']);
     }
 
     /**
@@ -219,6 +223,6 @@ class IngredientsController extends Controller
         // DELETE INGREDIENTS IN JOIN TABLE
         DB::table('ingredient_recipes')->where('ingredient_id',$id)->delete();
 
-        return redirect()->action([IngredientsController::class, 'index']);
+        return redirect()->action([IngredientController::class, 'index']);
     }
 }

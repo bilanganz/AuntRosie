@@ -13,19 +13,19 @@ class CreateNutritionTable extends Migration
      */
     public function up()
     {
-        Schema::create('nutrition', function (Blueprint $table) {
+        Schema::create('nutritions', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('calories');
             $table->bigInteger('fat');
-            $table->bigInteger('saturatedFat');
-            $table->bigInteger('transFat');
+            $table->bigInteger('saturated_fat');
+            $table->bigInteger('trans_fat');
             $table->bigInteger('cholestrol');
             $table->bigInteger('sodium');
             $table->bigInteger('carbohydrate');
-            $table->bigInteger('dietaryFiber');
+            $table->bigInteger('dietary_fiber');
             $table->bigInteger('sugar');
             $table->bigInteger('protein');
-            $table->bigInteger('vitaminD');
+            $table->bigInteger('vitamin_d');
             $table->bigInteger('calcium');
             $table->bigInteger('iron');
             $table->bigInteger('potassium');

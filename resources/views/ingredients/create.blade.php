@@ -45,14 +45,14 @@
                     {!! $errors->first('fat', '<p class="alert alert-danger">:message</p>') !!}
                 </div>
                 <div class="form-group">
-                    <label for="saturatedFat">Saturated Fat:</label>
-                    <input type="text" class="form-control" id="saturatedFat" name="saturatedFat" placeholder="Saturated Fat in mg" @if(!$errors->has('saturatedFat')) value="{{ old('saturatedFat') }}" @endif>
-                    {!! $errors->first('saturatedFat', '<p class="alert alert-danger">:message</p>') !!}
+                    <label for="saturated_fat">Saturated Fat:</label>
+                    <input type="text" class="form-control" id="saturated_fat" name="saturated_fat" placeholder="Saturated Fat in mg" @if(!$errors->has('saturated_fat')) value="{{ old('saturated_fat') }}" @endif>
+                    {!! $errors->first('saturated_fat', '<p class="alert alert-danger">:message</p>') !!}
                 </div>
                 <div class="form-group">
-                    <label for="transFat">Trans Fat:</label>
-                    <input type="text" class="form-control" id="transFat" name="transFat" placeholder="Trans Fat in mg" @if(!$errors->has('transFat')) value="{{ old('transFat') }}" @endif>
-                    {!! $errors->first('transFat', '<p class="alert alert-danger">:message</p>') !!}
+                    <label for="trans_fat">Trans Fat:</label>
+                    <input type="text" class="form-control" id="trans_fat" name="trans_fat" placeholder="Trans Fat in mg" @if(!$errors->has('trans_fat')) value="{{ old('trans_fat') }}" @endif>
+                    {!! $errors->first('trans_fat', '<p class="alert alert-danger">:message</p>') !!}
                 </div>
                 <div class="form-group">
                     <label for="cholestrol">Cholestrol:</label>
@@ -70,9 +70,9 @@
                     {!! $errors->first('carbohydrate', '<p class="alert alert-danger">:message</p>') !!}
                 </div>
                 <div class="form-group">
-                    <label for="dietaryFiber">Dietary Fiber:</label>
-                    <input type="text" class="form-control" id="dietaryFiber" name="dietaryFiber" placeholder="Dietary Fiber in mg" @if(!$errors->has('dietaryFiber')) value="{{ old('dietaryFiber') }}" @endif>
-                    {!! $errors->first('dietaryFiber', '<p class="alert alert-danger">:message</p>') !!}
+                    <label for="dietary_fiber">Dietary Fiber:</label>
+                    <input type="text" class="form-control" id="dietary_fiber" name="dietary_fiber" placeholder="Dietary Fiber in mg" @if(!$errors->has('dietary_fiber')) value="{{ old('dietary_fiber') }}" @endif>
+                    {!! $errors->first('dietary_fiber', '<p class="alert alert-danger">:message</p>') !!}
                 </div>
                 <div class="form-group">
                     <label for="sugar">Sugar:</label>
@@ -85,9 +85,9 @@
                     {!! $errors->first('protein', '<p class="alert alert-danger">:message</p>') !!}
                 </div>
                 <div class="form-group">
-                    <label for="vitaminD">Vitamin D:</label>
-                    <input type="text" class="form-control" id="vitaminD" name="vitaminD" placeholder="Vitamin D in mg" @if(!$errors->has('vitaminD')) value="{{ old('vitaminD') }}" @endif>
-                    {!! $errors->first('vitaminD', '<p class="alert alert-danger">:message</p>') !!}
+                    <label for="vitamin_d">Vitamin D:</label>
+                    <input type="text" class="form-control" id="vitamin_d" name="vitamin_d" placeholder="Vitamin D in mg" @if(!$errors->has('vitamin_d')) value="{{ old('vitamin_d') }}" @endif>
+                    {!! $errors->first('vitamin_d', '<p class="alert alert-danger">:message</p>') !!}
                 </div>
                 <div class="form-group">
                     <label for="calcium">Calcium:</label>

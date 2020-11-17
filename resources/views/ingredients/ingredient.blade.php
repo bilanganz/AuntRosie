@@ -14,7 +14,7 @@
                 <button class="btn btn-primary btn-sm btn-outline-secondary" onclick="return confirm('Are you sure?')" type="submit">Delete</button>
             </form>
         </div>
-        <small class="text-muted">{{ $ingredient->shelfLife }} days</small>
+        <small class="text-muted">{{ $ingredient->shelf_life }} days</small>
         </div>
     </div>
     </div>

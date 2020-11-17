@@ -48,29 +48,29 @@ class IngredientController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|unique:ingredients|max:255',
             'description' => 'required|max:255',
-            'shelfLife' => 'required|numeric|min:0|not_in:0',
-            'medical_condition_id'=>'required|numeric|min:0|not_in:0',
-            'calories'=>'required|numeric|min:0|not_in:0',
-            'fat'=>'required|numeric|min:0|not_in:0',
-            'saturated_fat'=>'required|numeric|min:0|not_in:0',
-            'trans_fat'=>'required|numeric|min:0|not_in:0',
-            'cholestrol'=>'required|numeric|min:0|not_in:0',
-            'sodium'=>'required|numeric|min:0|not_in:0',
-            'carbohydrate'=>'required|numeric|min:0|not_in:0',
-            'dietary_fiber'=>'required|numeric|min:0|not_in:0',
-            'sugar'=>'required|numeric|min:0|not_in:0',
-            'protein'=>'required|numeric|min:0|not_in:0',
-            'vitamin_d'=>'required|numeric|min:0|not_in:0',
-            'calcium'=>'required|numeric|min:0|not_in:0',
-            'iron'=>'required|numeric|min:0|not_in:0',
-            'potassium'=>'required|numeric|min:0|not_in:0',
+            'shelf_life' => 'required|numeric|min:0',
+            'medical_condition_id'=>'required|numeric|min:0',
+            'calories'=>'required|numeric|min:0',
+            'fat'=>'required|numeric|min:0',
+            'saturated_fat'=>'required|numeric|min:0',
+            'trans_fat'=>'required|numeric|min:0',
+            'cholestrol'=>'required|numeric|min:0',
+            'sodium'=>'required|numeric|min:0',
+            'carbohydrate'=>'required|numeric|min:0',
+            'dietary_fiber'=>'required|numeric|min:0',
+            'sugar'=>'required|numeric|min:0',
+            'protein'=>'required|numeric|min:0',
+            'vitamin_d'=>'required|numeric|min:0',
+            'calcium'=>'required|numeric|min:0',
+            'iron'=>'required|numeric|min:0',
+            'potassium'=>'required|numeric|min:0',
             'photo'=>'image'
         ]);
 
         $nutrition = new Nutritions(request(['calories','fat','saturated_fat','trans_fat','cholestrol','sodium','carbohydrate','dietary_fiber','sugar','protein','vitamin_d','calcium','iron','potassium']));
         $nutrition->save();        
         
-        $ingredient = new Ingredients(request(['name','description','shelfLife',$nutrition->id]));
+        $ingredient = new Ingredients(request(['name','description','shelf_life',$nutrition->id]));
         $ingredient->nutrition_id = $nutrition->id;
 
         $ingredient->save();
@@ -138,29 +138,29 @@ class IngredientController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|max:255|unique:ingredients,name,'.$id,
             'description' => 'required|max:255',
-            'shelfLife' => 'required|numeric|min:0|not_in:0',
-            'medical_condition_id'=>'required|numeric|min:0|not_in:0',
-            'calories'=>'required|numeric|min:0|not_in:0',
-            'fat'=>'required|numeric|min:0|not_in:0',
-            'saturated_fat'=>'required|numeric|min:0|not_in:0',
-            'trans_fat'=>'required|numeric|min:0|not_in:0',
-            'cholestrol'=>'required|numeric|min:0|not_in:0',
-            'sodium'=>'required|numeric|min:0|not_in:0',
-            'carbohydrate'=>'required|numeric|min:0|not_in:0',
-            'dietary_fiber'=>'required|numeric|min:0|not_in:0',
-            'sugar'=>'required|numeric|min:0|not_in:0',
-            'protein'=>'required|numeric|min:0|not_in:0',
-            'vitamin_d'=>'required|numeric|min:0|not_in:0',
-            'calcium'=>'required|numeric|min:0|not_in:0',
-            'iron'=>'required|numeric|min:0|not_in:0',
-            'potassium'=>'required|numeric|min:0|not_in:0',
+            'shelf_life' => 'required|numeric|min:0',
+            'medical_condition_id'=>'required|numeric|min:0',
+            'calories'=>'required|numeric|min:0',
+            'fat'=>'required|numeric|min:0',
+            'saturated_fat'=>'required|numeric|min:0',
+            'trans_fat'=>'required|numeric|min:0',
+            'cholestrol'=>'required|numeric|min:0',
+            'sodium'=>'required|numeric|min:0',
+            'carbohydrate'=>'required|numeric|min:0',
+            'dietary_fiber'=>'required|numeric|min:0',
+            'sugar'=>'required|numeric|min:0',
+            'protein'=>'required|numeric|min:0',
+            'vitamin_d'=>'required|numeric|min:0',
+            'calcium'=>'required|numeric|min:0',
+            'iron'=>'required|numeric|min:0',
+            'potassium'=>'required|numeric|min:0',
             'photo'=>'image',
         ]);
 
         $ingredient->medical_condition_id = $request->input('medical_condition_id');
         $ingredient->name = $request->input('name');
         $ingredient->description = $request->input('description');
-        $ingredient->shelfLife = $request->input('shelfLife');
+        $ingredient->shelf_life = $request->input('shelf_life');
         
         $nutrition->calories = $request->input('calories');
         $nutrition->fat = $request->input('fat');

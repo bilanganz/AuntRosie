@@ -16,7 +16,7 @@ class CreateMedicalConditionsTable extends Migration
         Schema::create('medical_conditions', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description');
+            $table->string('description',300);
             $table->softDeletes();
         });
     }

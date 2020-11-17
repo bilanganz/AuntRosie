@@ -21,9 +21,9 @@
                     {!! $errors->first('description', '<p class="alert alert-danger">:message</p>') !!}
                 </div>
                 <div class="form-group">
-                    <label for="shelfLife">Shelf Life:</label>
-                    <input type="text" class="form-control" id="shelfLife" name="shelfLife" placeholder="Shelf life in weeks" @if(!$errors->has('shelfLife')) value="{{ old('shelfLife') }}" @endif>
-                    {!! $errors->first('shelfLife', '<p class="alert alert-danger">:message</p>') !!}
+                    <label for="shelf_life">Shelf Life:</label>
+                    <input type="text" class="form-control" id="shelf_life" name="shelf_life" placeholder="Shelf life in weeks" @if(!$errors->has('shelf_life')) value="{{ old('shelf_life') }}" @endif>
+                    {!! $errors->first('shelf_life', '<p class="alert alert-danger">:message</p>') !!}
                 </div>
                 <div class="form-group">
                     <label for="medical_condition_id">Medical Condition:</label>

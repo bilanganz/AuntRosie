@@ -50,3 +50,11 @@ Route::get('/customers/{customer}/edit', 'CustomerController@edit');
 Route::put('/customers/{customer}','CustomerController@update');
 Route::delete('/customers/destroy/{customer}','CustomerController@destroy');
 
+Route::get('/recipes', 'RecipeController@index');
+Route::post('/recipes','RecipeController@store');
+Route::get('/recipes/create', 'RecipeController@create');
+Route::get('/recipes/{recipe}', 'RecipeController@show');
+Route::get('/recipes/{recipe}/edit', 'RecipeController@edit');
+Route::put('/recipes/{recipe}','RecipeController@update');
+Route::delete('/recipes/destroy/{recipe}','RecipeController@destroy');
+

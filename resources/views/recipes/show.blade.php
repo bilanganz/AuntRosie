@@ -18,10 +18,11 @@
                         <th scope="row">Description</th>
                         <td>{{ $recipe->description }}</td>
                         </tr>
-                        @foreach($rec as $ingredient)
+                        @foreach($recipe->ingredients as $ingredient)
                             <tr>
                                 <th scope="row">{{$ingredient->name}}</th>
-                                <td>{{ $recipe->description }}</td>
+                                <td>{{ $ingredient->description }}</td>
+                                <td>{{ $ingredient->pivot->amount }}</td>
                             </tr>
                         @endforeach
                     </tbody>

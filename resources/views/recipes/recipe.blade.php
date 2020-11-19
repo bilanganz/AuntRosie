@@ -1,6 +1,5 @@
 <div class="col-md-4">
     <div class="card mb-4 box-shadow">
-    <img src="images/{{ strtolower($recipe->name) }}.jpg" alt="{{ $recipe->name }}" width="75px" length="75px"/>
     <div class="card-body">
         <h2>{{ $recipe->name }}</h2>
         <p class="card-text">{{ $recipe->description }}</p>

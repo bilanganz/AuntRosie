@@ -6,6 +6,8 @@
 
 <div class="album py-5 bg-light">
     <div class="container">
+        <a class="btn btn-primary" href="{{ URL::to('medicalConditions/create') }}" role="button">Add New</a>
+        <hr/>
           <div class="row justify-content-md-center">
             <div class="col-md-8">
                 <table class="table">

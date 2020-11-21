@@ -82,7 +82,10 @@ class RecipeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $recipe = Recipes::find($id);
+        $ingredients = Ingredients::all();
+        
+        return view('recipes.edit', compact(['recipe','ingredients']));
     }
 
     /**
@@ -105,6 +108,9 @@ class RecipeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $recipe = Recipes::find($id);
+        $recipe->delete();
+
+        return redirect()->action([RecipeController::class, 'index']);
     }
 }

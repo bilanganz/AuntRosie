@@ -7,7 +7,7 @@
         <div class="btn-group">
             <a class="btn btn-primary btn-sm btn-outline-secondary" href="{{ URL::to('recipes/' . $recipe->id) }}" role="button">View</a>
             <a class="btn btn-primary btn-sm btn-outline-secondary" href="{{ URL::to('recipes/' . $recipe->id) . '/edit' }}" role="button">Edit</a>
-            <form action="{{ URL::to('/recipe/destroy/'.$recipe->id) }}" method="POST">
+            <form action="{{ URL::to('/recipes/destroy/'.$recipe->id) }}" method="POST">
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}
                 <button class="btn btn-primary btn-sm btn-outline-secondary" onclick="return confirm('Are you sure?')" type="submit">Delete</button>

@@ -51,7 +51,7 @@
                         </tr>
                     @foreach($ingredients as $ingredient)
                         <tr>
-                            <td><input type="checkbox" id="ingredient_{{$ingredient->id}}" name="ingredients[]" value="{{$ingredient->name}}" onclick="createChk(ingredient_{{$ingredient->id}})"></td>
+                            <td><input type="checkbox" id="ingredient_{{$ingredient->id}}" name="ingredients[]" value="{{$ingredient->id}}" onclick="createChk(ingredient_{{$ingredient->id}})"></td>
                             <td><label for="ingredient_{{$ingredient->id}}">{{$ingredient->name}}</label></td>
                             <td id="container_{{$ingredient->id}}"></td>
                         </tr>

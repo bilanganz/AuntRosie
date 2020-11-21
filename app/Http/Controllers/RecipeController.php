@@ -38,9 +38,6 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
-        
-        dd($request);
-
         $validatedData = $request->validate([
             'name' => 'required|unique:ingredients|max:255',
             'description' => 'required|max:255',
@@ -48,17 +45,20 @@ class RecipeController extends Controller
             'amount' => 'required'
         ]);
 
-        // $array = $request['amount'];
-        // foreach ($array as $array_key => $array_item) {
-        //     if ($array[$array_key] == 0) {
-        //         unset($array[$array_key]);
-        //     }
-        // }
+        $recipe = new Recipes(request(['name','description']));
+        $recipe->save();
+        // $recipe->ingredients()->sync($request->ingredients, ['amount' => $request->amount]);
 
-        // dd($array);
+        $ingredients = $request->ingredients;
+        $amount = $request->amount;
+        $size = count(collect($request)->get('ingredients'));
 
-        // $user->tasks()->sync([5,6,7,8], false); 
-        // $user->tasks()->getRelatedIds();
+        for ($i = 0; $i < $size; $i++)
+        {
+            $recipe->ingredients()->attach($ingredients[$i], ['amount' => $amount[$i]]);
+        }
+
+        return redirect()->action([RecipeController::class, 'index']);
     }
 
     /**

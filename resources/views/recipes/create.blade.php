@@ -3,6 +3,28 @@
 @section('title', 'Create Recipe')
 
 @section('content')
+<script>
+    function createChk(obj) {
+        // console.log(obj);
+        if (obj.value !== '' && document.getElementById(obj.id).checked) {
+            var chk = document.createElement('input');  // CREATE CHECK BOX.
+            chk.setAttribute('type', 'text');       // SPECIFY THE TYPE OF ELEMENT.
+            chk.setAttribute('id', obj.value);     // SET UNIQUE ID.
+            chk.setAttribute('class', "form-control");
+            chk.setAttribute('placeholder', 0);
+            chk.setAttribute('size', 5);
+            chk.setAttribute('name', 'amount[]');
+
+            // APPEND THE NEWLY CREATED CHECKBOX AND LABEL TO THE <p> ELEMENT.
+            document.getElementById('container_'+obj.id.slice(-1)).appendChild(chk);
+        }
+        else if(!document.getElementById(obj.id).checked)
+        {
+            var element  = document.getElementById(obj.value);
+            element.parentNode.removeChild(element);
+        }
+    }
+</script>
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-sm-5">
@@ -29,9 +51,9 @@
                         </tr>
                     @foreach($ingredients as $ingredient)
                         <tr>
-                            <td><input type="checkbox" id="ingredient_{{$ingredient->id}}" name="ingredients[]" value="{{$ingredient->name}}"></td>
+                            <td><input type="checkbox" id="ingredient_{{$ingredient->id}}" name="ingredients[]" value="{{$ingredient->name}}" onclick="createChk(ingredient_{{$ingredient->id}})"></td>
                             <td><label for="ingredient_{{$ingredient->id}}">{{$ingredient->name}}</label></td>
-                            <td><input type="text" class="form-control" id="ingredient_{{$ingredient->id}}" name="amount[]" placeholder="0" size="5"></td>
+                            <td id="container_{{$ingredient->id}}"></td>
                         </tr>
                     @endforeach
                     </table>

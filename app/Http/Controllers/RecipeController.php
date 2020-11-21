@@ -38,14 +38,21 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
-
         $validatedData = $request->validate([
             'name' => 'required|unique:ingredients|max:255',
             'description' => 'required|max:255',
             'ingredients' => 'required',
-            'quantity' => 'required'
+            'amount' => 'required'
         ]);
+
+        $array = $request['amount'];
+        foreach ($array as $array_key => $array_item) {
+            if ($array[$array_key] == 0) {
+                unset($array[$array_key]);
+            }
+        }
+
+        dd($array);
 
         // $user->tasks()->sync([5,6,7,8], false); 
         // $user->tasks()->getRelatedIds();

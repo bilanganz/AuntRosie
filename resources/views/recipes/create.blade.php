@@ -3,29 +3,6 @@
 @section('title', 'Create Recipe')
 
 @section('content')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-$(document).ready(function() {
-    function myFunction(checkbox,textbox) {
-        // Get the checkbox
-        var checkBox = document.getElementById(checkbox);
-        alert("asd");
-        // If the checkbox is checked, display the output text
-        if (checkBox.checked == true){
-            var element = document.createElement("input");
-            element.setAttribute("type", "text");
-            element.setAttribute("value", "");
-            element.setAttribute("name", "Test Name");
-            element.setAttribute("style", "width:200px");
-            checkBox.appendChild(element);
-        } else {
-            document.getElementById(textbox).remove();
-        }
-    }
-});
-
-</script>
-
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-sm-5">
@@ -54,10 +31,12 @@ $(document).ready(function() {
                         <tr>
                             <td><input type="checkbox" id="ingredient_{{$ingredient->id}}" name="ingredients[]" value="{{$ingredient->name}}"></td>
                             <td><label for="ingredient_{{$ingredient->id}}">{{$ingredient->name}}</label></td>
-                            <!-- <td><input type="text" class="form-control" id="ingredient_{{$ingredient->id}}" name="amount[]" placeholder="0" size="5"></td> -->
+                            <td><input type="text" class="form-control" id="ingredient_{{$ingredient->id}}" name="amount[]" placeholder="0" size="5"></td>
                         </tr>
                     @endforeach
                     </table>
+                    {!! $errors->first('ingredients', '<p class="alert alert-danger">:message</p>') !!}
+                    {!! $errors->first('amount', '<p class="alert alert-danger">:message</p>') !!}
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Publish</button>

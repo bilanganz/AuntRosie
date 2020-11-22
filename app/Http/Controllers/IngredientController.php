@@ -85,7 +85,7 @@ class IngredientController extends Controller
 
             $newname = strtolower($ingredient->name);
             // BETTER HARD TO TO BE .JPG FILE
-            $file->move('images', $newname.'.'.$file_ex);
+            $file->move('ingredient_images', $newname.'.'.$file_ex);
         }
         session()->flash(
             'message','You have successfully added ingredient.'  
@@ -182,7 +182,7 @@ class IngredientController extends Controller
 
         
         if($request->hasFile('photo')){        
-            $path = 'images/';
+            $path = 'ingredient_images/';
   
             //code for remove old file
             if($ingredient->name != ''  && $ingredient->name != null){
@@ -199,7 +199,7 @@ class IngredientController extends Controller
             $file_mime = $file->getMimeType();
     
             $newname = strtolower($ingredient->name);
-            $file->move('images', $newname.'.'.$file_ex);
+            $file->move('ingredient_images', $newname.'.'.$file_ex);
        }
        return redirect()->action([IngredientController::class, 'index']);
     }

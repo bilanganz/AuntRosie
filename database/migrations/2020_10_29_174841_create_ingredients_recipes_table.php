@@ -17,7 +17,7 @@ class CreateIngredientsRecipesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('ingredients_id');
             $table->unsignedBigInteger('recipes_id');
-            $table->bigInteger('amount');
+            $table->bigInteger('amount')->default('0');
             $table->foreign('ingredients_id')->references('id')->on('ingredients');
             $table->foreign('recipes_id')->references('id')->on('recipes');
         });

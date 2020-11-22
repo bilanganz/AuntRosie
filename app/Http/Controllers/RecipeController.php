@@ -97,7 +97,43 @@ class RecipeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $recipe = Recipes::find($id);
+
+        $validatedData = $request->validate([
+            'name' => 'required|unique:ingredients|max:255',
+            'description' => 'required|max:255',
+            'ingredients' => 'required',
+            'amount' => 'required'
+        ]);
+
+        $recipe->name = $request->input('name');
+        $recipe->description = $request->input('description');
+
+        $recipe->save();
+
+        $ingredients = $request->ingredients;
+        $amount = $request->amount;
+        $size = count(collect($request)->get('ingredients'));
+
+        for ($i = 0; $i < $size; $i++)
+        {
+            // $recipe->ingredients[$i] = ['amount' => $amount[$i]];  
+
+            // $recipe->ingredients()->sync([1=>$ingredients[$i], 2=> ['amount' => $amount[$i]]]);
+            
+        }
+
+        $recipe->ingredients()->sync([
+            1,
+            2,
+            3,
+            4 =>['amount' => $amount]
+        ]);
+
+        
+        // $recipe->ingredients()->sync($ingredients);
+
+        return redirect()->action([RecipeController::class, 'index']);
     }
 
     /**

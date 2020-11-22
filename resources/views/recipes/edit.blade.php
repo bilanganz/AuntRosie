@@ -31,15 +31,16 @@
             <h1>Edit {{ $recipe->name }} Information</h1>
             <hr>
             <form method="POST" action="/recipes/{{$recipe->id}}" enctype="multipart/form-data">
+                {{ method_field('put') }}
                 {{csrf_field()}}
                 <div class="form-group">
                     <label for="name">Recipe Name:</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Name" @if(!$errors->has('name')) value="{{ old('name') }}" @endif>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Name" @if(isset($recipe)) value="{{ $recipe->name }}" @elseif(!$errors->has('name')) value="{{ old('name') }}" @endif>
                     {!! $errors->first('name', '<p class="alert alert-danger">:message</p>') !!}
                 </div>
                 <div class="form-group">
                     <label for="description">Description:</label>
-                    <input type="text" class="form-control" id="description" name="description" placeholder="Description" @if(!$errors->has('description')) value="{{ old('description') }}" @endif>
+                    <input type="text" class="form-control" id="description" name="description" placeholder="Description" @if(isset($recipe)) value="{{ $recipe->name }}" @elseif(!$errors->has('description')) value="{{ old('description') }}" @endif>
                     {!! $errors->first('description', '<p class="alert alert-danger">:message</p>') !!}
                 </div>
                 <div class="form-group">
@@ -51,9 +52,13 @@
                         </tr>
                     @foreach($ingredients as $ingredient)
                         <tr>
-                            <td><input type="checkbox" id="ingredient_{{$ingredient->id}}" name="ingredients[]" value="{{$ingredient->id}}" onclick="createChk(ingredient_{{$ingredient->id}})" @if(isset($recipe)) checked @endif></td>
+                            <td><input type="checkbox" id="ingredient_{{$ingredient->id}}" name="ingredients[]" value="{{$ingredient->id}}" onclick="createChk(ingredient_{{$ingredient->id}})" @if($recipe->ingredients->contains($ingredient->id)) checked @endif</td>
                             <td><label for="ingredient_{{$ingredient->id}}">{{$ingredient->name}}</label></td>
-                            <td id="container_{{$ingredient->id}}"></td>
+                            <td id="container_{{$ingredient->id}}">
+                                @if($recipe->ingredients->contains($ingredient->id))
+                                    <input type="text" class="form-control" id="{{$ingredient->id}}" name="amount[]" placeholder="0" size="5" value="{{$recipe->ingredients->find($ingredient->id)->pivot->amount}}">
+                                @endif
+                            </td>
                         </tr>
                     @endforeach
                     </table>

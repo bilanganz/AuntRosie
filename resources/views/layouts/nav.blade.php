@@ -1,51 +1,23 @@
-<header>
-      <div class="collapse bg-dark" id="navbarHeader">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-8 col-md-7 py-4">
-              <h4 class="text-white">History</h4>
-              <p class="text-muted">
-                For the best in homemade meat pies and preserves the exacting and demanding
-                foodie need look no further than Aunt Rosie. Since the early 80’s, Rosie has been
-                making and selling her fare at a variety of farmers markets, home shows and bazaars
-                throughout southern Ontario. Over the last five years she has started to realize a
-                significant financial payoff for her years of perseverance and attention to quality in
-                everything she produces thanks to the developing “foodie” movement.
-              </p>
-            </div>
-            <div class="col-sm-4 offset-md-1 py-4">
-              <h4 class="text-white">Contact</h4>
-              <ul class="list-unstyled">
-                <li><a href="#" class="text-white">Follow on Twitter</a></li>
-                <li><a href="#" class="text-white">Like on Facebook</a></li>
-                <li><a href="#" class="text-white">Comment on Instagram</a></li>
-                <li><a href="#" class="text-white">Email me</a></li>
-              </ul>
-              <h4 class="text-white"><a href="/credit" class="text-white">Credit</a></h4>
-            </div>
-          </div>
+<!--================Main Header Area =================-->
+<header class="main_header_area">
+    <div class="top_header_area row m0">
+      <div class="container">
+        <div class="float-left">
+          <a href="tell:+1(111) 111 1111"><i class="fa fa-phone" aria-hidden="true"></i> + 1 (647) 123 1234</a>
+          <a href="mainto:auntrosie@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>
+            auntrosie@gmail.com</a>
         </div>
-      </div>
-      <div class="navbar navbar-dark bg-dark box-shadow">
-        <div class="container d-flex justify-content-between">
-          <a href="/" class="navbar-brand d-flex align-items-center">
-            <img src="/images/baker_icon.ico" alt="Aunt Rosie's Logo" width="45" height="45"/>
-            <strong>Aunt Rosie's Homemade Pies and Preserves</strong>
-          </a>
-          <div class="d-flex flex-row-reverse">
-                <!-- Authentication Links -->
+        <div class="float-right">
+          <ul class="h_social list_style">
+            <!-- Authentication Links -->
                 @guest
-                       <div class="p-2">
-                        <a class="nav-link text-light font-weight-bold"  href="{{ route('login') }}">{{ __('Login') }}</a>
-                       </div>
+                      <li><a class="nav-link text-light font-weight-bold"  href="{{ route('login') }}">{{ __('Login') }}</a></li>
                     @if (Route::has('register'))
-                       <div class="p-2">
-                        <a class="nav-link text-light font-weight-bold" href="{{ route('register') }}">{{ __('Register') }}</a>
-                       </div> 
+                       <li><a class="nav-link text-light font-weight-bold" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                     @endif
                 @else
                         <div class="dropdown">
-                          <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                          <a id="navbarDropdown" class="nav-link dropdown-toggle text-light font-weight-bold" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                               {{ Auth::user()->name }}
                           </a>
                           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -60,10 +32,88 @@
                           </div>
                         </div>
                 @endguest
-          </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+          </ul>
+          <!-- COMMENTED AT THE MOMENT FOR FUTURE DEVELOPMENT -->
+          <!-- <ul class="h_search list_style">
+            <li><a class="popup-with-zoom-anim" href="search.html"><i class="fa fa-search"></i></a></li>
+          </ul> -->
         </div>
       </div>
+    </div>
+    @auth
+      <div class="main_menu_two">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html"><img src="img/logo.jpg" alt="" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="my_toggle_menu">
+              </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav justify-content-end">
+                <li class="active"><a href="index.html">Home</a></li>
+                <li class="dropdown submenu">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="recipe.html" role="button" aria-haspopup="true"
+                    aria-expanded="false">Recipe</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="recipe.html">Recipe Record</a></li>
+                    <li><a href="add-recipe.html">Add Recipe</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown submenu">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="inventory.html" role="button"
+                    aria-haspopup="true" aria-expanded="false">Inventory</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="inventory.html">Inventory Record</a></li>
+                    <li><a href="add-inventory.html">Add Inventory</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown submenu">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="ingredients.html" role="button"
+                    aria-haspopup="true" aria-expanded="false">Ingredients</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="ingredients.html">Ingredients Record</a></li>
+                    <li><a href="add-ingredients.html">Add Ingredients</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown submenu">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="stock.html" role="button" aria-haspopup="true"
+                    aria-expanded="false">Stock</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="stock.html">Stock Record</a></li>
+                    <li><a href="add-stock.html">Add Stock</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown submenu">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="nutrition.html" role="button"
+                  aria-haspopup="true" aria-expanded="false">Medical</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="medical-condition.html">Medical Condition</a></li>
+                    <li><a href="add-medical-con.html">Add Medical Condition</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown submenu">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="sales.html" role="button" aria-haspopup="true"
+                    aria-expanded="false">Sales</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="sales.html">Sales Record</a></li>
+                    <li><a href="add-sales.html">Add Sales</a></li>
+                  </ul>
+                </li>
+                <li><a href="membership.html">Membership</a></li>
+                <li class="dropdown submenu">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="customer.html" role="button" aria-haspopup="true"
+                    aria-expanded="false">Customer</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="customer.html">Customer Record</a></li>
+                    <li><a href="add-customer.html">Add Customer</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+    </div>
+  @endauth
 </header>

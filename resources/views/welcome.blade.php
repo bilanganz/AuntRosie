@@ -3,65 +3,88 @@
 @section('title', 'Home Page')
 
 @section('content')
-    <section class="jumbotron text-center">
-        <div class="container">
-          <h1 class="jumbotron-heading">Aunt Rosie's Homemade Pies & Preserves</h1>
-          <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>   
-        </div>
-      </section>
-
-      <div class="album py-5 bg-light">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-                <div class="card mb-4 box-shadow">
-                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Steak & Stout Pie"/>
-                <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                    <small class="text-muted">9 mins</small>
+<!--================Welcome Area =================-->
+<section class="welcome_bakery_area cake_feature_main p_100">
+    <div class="container">
+        <div class="welcome_bakery_inner p_100">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="main_title">
+                    <h2>Welcome to Aunt Rosie’s Homemade Pies and Preserves</h2>
+                    <p>
+                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum dolore distinctio,
+                                            est totam rem facilis officia quod nobis voluptatum ea, 
+                                        commodi, ex consequatur quibusdam! Illum magnam officia tenetur commodi animi.
+                    </p>
+                    </div>
+                    <div class="welcome_left_text">
+                    <p>
+                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum eum in unde voluptate. 
+                                        Earum perspiciatis quis consectetur, 
+                                        id ducimus ratione maxime cupiditate ab dolorum nostrum sequi possimus atque neque voluptates?
+                    </p>
+                    <a class="pink_btn" href="membership.html">Register for Aunt Rosie's Membership</a>
                     </div>
                 </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card mb-4 box-shadow">
-                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Steak & Kidney Pie"/>
-                <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                    <small class="text-muted">9 mins</small>
+                <div class="col-lg-6">
+                    <div class="welcome_img">
+                    <img
+                        class="img-fluid"
+                        src="img/feature/rosie.png"
+                        alt=""
+                    />
                     </div>
-                </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card mb-4 box-shadow">
-                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Sweet Peaches"/>
-                <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                    <small class="text-muted">9 mins</small>
-                    </div>
-                </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card mb-4 box-shadow">
-                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Hot Horseradish"/>
-                <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                    </div>
-                </div>
                 </div>
             </div>
         </div>
-      </div>
+        <div class="main_title">
+            <h2>Our Featured Products</h2>
+        </div>
+        <div class="cake_feature_row row">
+            <div class="col-lg-3 col-md-4 col-6">
+            <div class="cake_feature_item">
+                <div class="cake_img">
+                <img src="img/feature/feature-1.jpg" alt="" />
+                </div>
+                <div class="cake_text">
+                <h4>$29.99</h4>
+                <h3>Steak and kidney pie</h3>
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6">
+            <div class="cake_feature_item">
+                <div class="cake_img">
+                <img src="img/feature/feature-2.jpg" alt="" />
+                </div>
+                <div class="cake_text">
+                <h4>$29.99</h4>
+                <h3>Steak and stout pie</h3>
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6">
+            <div class="cake_feature_item">
+                <div class="cake_img">
+                <img src="img/feature/feature-3.jpg" alt="" />
+                </div>
+                <div class="cake_text">
+                <h4>$29.99</h4>
+                <h3>Rosemary chicken pie</h3>
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6">
+            <div class="cake_feature_item">
+                <div class="cake_img">
+                <img src="img/feature/feature-4.jpg" alt="" />
+                </div>
+                <div class="cake_text">
+                <h4>$29.99</h4>
+                <h3>Turkey leek pie</h3>
+                </div>
+            </div>
+        </div>
     </div>
+</section>
 @stop

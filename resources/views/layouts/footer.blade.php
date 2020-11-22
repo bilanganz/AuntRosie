@@ -7,7 +7,8 @@
               <aside class="f_widget f_about_widget">
                 <img src="img/logo.jpg" alt="" />
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, consequuntur.
+                  since the early 80’s, Rosie has been making and selling her fare at a variety of 
+                  farmers markets, home shows and bazaarsthroughout southern Ontario
                 </p>
                 <ul class="nav">
                   <li>
@@ -31,11 +32,11 @@
                   <h3>Quick links</h3>
                 </div>
                 <ul class="list_style">
-                  <li><a href="recipe.html">Recipe</a></li>
-                  <li><a href="inventory.html">Inventory</a></li>
-                  <li><a href="ingredients.html">Ingredients</a></li>
-                  <li><a href="stock.html">Stock</a></li>
-                  <li><a href="sales.html">Sales</a></li>
+                  <li><a href="/recipes">Recipe</a></li>
+                  <li><a href="/inventories">Inventory</a></li>
+                  <li><a href="/ingredients">Ingredients</a></li>
+                  <li><a href="/stocks">Stock</a></li>
+                  <li><a href="/sales">Sales</a></li>
                 </ul>
               </aside>
             </div>
@@ -59,6 +60,7 @@
                 <h4>+1 111 111 1111</h4>
                 <p>Aunt Rosie <br />Simcoe Street, Oshawa, ON</p>
                 <h5>auntrosie@gmail.com</h5>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2872.744471594194!2d-78.89818508510845!3d43.943961741599125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d51b902fedb973%3A0xdd6091694035e8a1!2sDurham%20College!5e0!3m2!1sen!2sca!4v1606080877116!5m2!1sen!2sca" width="175" height="150" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
               </aside>
             </div>
           </div>

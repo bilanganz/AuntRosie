@@ -2,11 +2,14 @@
 
 @section('title', 'Create Ingredient')
 
+@section('banner_link')
+<li><a href="Request::url()">Add Ingredient</a></li>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-sm-5">
-            <h1>Insert New Ingredient</h1>
             <hr>
             <form method="POST" action="/ingredients" enctype="multipart/form-data">
                 {{csrf_field()}}

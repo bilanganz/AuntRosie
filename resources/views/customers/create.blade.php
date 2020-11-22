@@ -2,11 +2,14 @@
 
 @section('title', 'Create Customer')
 
+@section('banner_link')
+<li><a href="Request::url()">Add Customer</a></li>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-sm-5">
-            <h1>Insert New Customer</h1>
             <hr>
             <form method="POST" action="/customers" enctype="multipart/form-data">
                 {{csrf_field()}}

@@ -52,53 +52,53 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav justify-content-end">
-                <li class="active"><a href="home">Home</a></li>
+                <li class="active"><a href="/home">Home</a></li>
                 <li class="dropdown submenu">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="recipe.html" role="button" aria-haspopup="true"
                     aria-expanded="false">Recipe</a>
                   <ul class="dropdown-menu">
-                    <li><a href="recipes">Recipe Record</a></li>
-                    <li><a href="recipes/create">Add Recipe</a></li>
+                    <li><a href="/recipes">Recipe Record</a></li>
+                    <li><a href="/recipes/create">Add Recipe</a></li>
                   </ul>
                 </li>
                 <li class="dropdown submenu">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="inventory.html" role="button"
                     aria-haspopup="true" aria-expanded="false">Inventory</a>
                   <ul class="dropdown-menu">
-                    <li><a href="inventories">Inventory Record</a></li>
-                    <li><a href="inventories/create">Add Inventory</a></li>
+                    <li><a href="/inventories">Inventory Record</a></li>
+                    <li><a href="/inventories/create">Add Inventory</a></li>
                   </ul>
                 </li>
                 <li class="dropdown submenu">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="ingredients.html" role="button"
                     aria-haspopup="true" aria-expanded="false">Ingredients</a>
                   <ul class="dropdown-menu">
-                    <li><a href="ingredients">Ingredients Record</a></li>
-                    <li><a href="ingredients/create">Add Ingredients</a></li>
+                    <li><a href="/ingredients">Ingredients Record</a></li>
+                    <li><a href="/ingredients/create">Add Ingredients</a></li>
                   </ul>
                 </li>
                 <li class="dropdown submenu">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="stock.html" role="button" aria-haspopup="true"
                     aria-expanded="false">Stock</a>
                   <ul class="dropdown-menu">
-                    <li><a href="stocks">Stock Record</a></li>
-                    <li><a href="stocks/create">Add Stock</a></li>
+                    <li><a href="/stocks">Stock Record</a></li>
+                    <li><a href="/stocks/create">Add Stock</a></li>
                   </ul>
                 </li>
                 <li class="dropdown submenu">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="nutrition.html" role="button"
                   aria-haspopup="true" aria-expanded="false">Medical</a>
                   <ul class="dropdown-menu">
-                    <li><a href="medicalConditions">Medical Condition</a></li>
-                    <li><a href="medicalConditions/create">Add Medical Condition</a></li>
+                    <li><a href="/medicalConditions">Medical Condition</a></li>
+                    <li><a href="/medicalConditions/create">Add Medical Condition</a></li>
                   </ul>
                 </li>
                 <li class="dropdown submenu">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="sales.html" role="button" aria-haspopup="true"
                     aria-expanded="false">Sales</a>
                   <ul class="dropdown-menu">
-                    <li><a href="sales">Sales Record</a></li>
-                    <li><a href="sales/create">Add Sales</a></li>
+                    <li><a href="/sales">Sales Record</a></li>
+                    <li><a href="/sales/create">Add Sales</a></li>
                   </ul>
                 </li>
                 <li><a href="membership.html">Membership</a></li>
@@ -106,8 +106,8 @@
                   <a class="dropdown-toggle" data-toggle="dropdown" href="customer.html" role="button" aria-haspopup="true"
                     aria-expanded="false">Customer</a>
                   <ul class="dropdown-menu">
-                    <li><a href="customers">Customer Record</a></li>
-                    <li><a href="customers/create">Add Customer</a></li>
+                    <li><a href="/customers">Customer Record</a></li>
+                    <li><a href="/customers/create">Add Customer</a></li>
                   </ul>
                 </li>
               </ul>

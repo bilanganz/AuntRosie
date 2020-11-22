@@ -2,11 +2,14 @@
 
 @section('title', 'Create Medical Condition')
 
+@section('banner_link')
+<li><a href="Request::url()">Add Medical Condition</a></li>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-sm-5">
-            <h1>Insert New Medical Condition</h1>
             <hr>
             <form method="POST" action="/medicalConditions" enctype="multipart/form-data">
                 {{csrf_field()}}

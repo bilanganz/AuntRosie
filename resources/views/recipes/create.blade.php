@@ -2,6 +2,10 @@
 
 @section('title', 'Create Recipe')
 
+@section('banner_link')
+<li><a href="Request::url()">Add Recipes</a></li>
+@endsection
+
 @section('content')
 <script>
     function createChk(obj) {
@@ -28,7 +32,6 @@
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-sm-5">
-            <h1>Insert New Recipe</h1>
             <hr>
             <form method="POST" action="/recipes" enctype="multipart/form-data">
                 {{csrf_field()}}

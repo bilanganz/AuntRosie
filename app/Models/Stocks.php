@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Stocks extends Model
 {
+    protected $guarded =[];
+    public $timestamps = false;
+    
     use HasFactory;
 
     public function ingredients()

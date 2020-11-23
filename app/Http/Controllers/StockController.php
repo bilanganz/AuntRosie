@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Stocks;
+use App\Models\Ingredients;
 
 class StockController extends Controller
 {
@@ -15,7 +16,7 @@ class StockController extends Controller
     public function index(Stocks $stocks)
     {
         $stocksTotal = Stocks::selectRaw('SUM(quantity) as quantity, ingredients_id')
-        ->groupBy('ingredients_id')->get();
+        ->groupBy('ingredients_id')->orderBy('ingredients_id', 'asc')->get();
         $stocks = $stocks::all();
         // dd($stocksTotal);
         return view('stocks.index',compact('stocks','stocksTotal'));
@@ -41,14 +42,44 @@ class StockController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'ingredient_id'=>'required|numeric|min:0|not_in:0',
+            'ingredients_id'=>'required|numeric|min:0|not_in:0',
             'quantity'=>'required|numeric|min:0|not_in:0'
         ]);
 
-        $stock =  new Stocks(request(['ingredient_id','quantity']));
+        $stock =  new Stocks(request(['ingredients_id','quantity']));
         $stock->save();
 
-        return redirect()->action([StocksController::class, 'index']);
+        return redirect()->action([StockController::class, 'index']);
+    }
+
+    /**
+     * Show the form for reducing a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function reduce()
+    {
+        $ingredients = Ingredients::all();
+        return view('stocks.reduction', compact('ingredients'));
+    }
+    
+    /**
+     * reduce a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function reduction(Request $request)
+    {
+        $validatedData = $request->validate([
+            'ingredients_id'=>'required|numeric|min:0|not_in:0',
+            'quantity'=>'required|numeric|max:0|not_in:0'
+        ]);
+
+        $stock =  new Stocks(request(['ingredients_id','quantity']));
+        $stock->save();
+
+        return redirect()->action([StockController::class, 'index']);
     }
 
     /**
@@ -59,9 +90,6 @@ class StockController extends Controller
      */
     public function show($id)
     {
-        $stock = Stocks::find($id);
-
-        return view('stocks.show', compact(['stock']));
     }
 
     /**
@@ -72,10 +100,6 @@ class StockController extends Controller
      */
     public function edit($id)
     {
-        $stock = Stocks::find($id);
-        $ingredients = Ingredients::all();
-
-        return view('stocks.show', compact(['stock','ingredients']));
     }
 
     /**
@@ -87,19 +111,6 @@ class StockController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $stock = Stocks::find($id);
-
-        $validatedData = $request->validate([
-            'ingredient_id'=>'required|numeric|min:0|not_in:0',
-            'quantity'=>'required|numeric|min:0|not_in:0'
-        ]);
-
-        $stock->ingredient_id = $request->input('ingredient_id');
-        $stock->quantity = $request->input('quantity');
-
-        $stock->save();
-
-        return redirect()->action([StocksController::class, 'index']);
     }
 
     /**
@@ -110,9 +121,5 @@ class StockController extends Controller
      */
     public function destroy($id)
     {
-        $stock = Stocks::find($id);
-        $stock->delete();
-
-        return redirect()->action([StocksController::class, 'index']);
     }
 }

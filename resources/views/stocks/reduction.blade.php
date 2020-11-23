@@ -1,14 +1,14 @@
 @extends('layouts.master')
 
-@section('title', 'Create Medical Condition')
+@section('title', 'Remove Stock')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-sm-5">
-            <h1>Insert New Medical Condition</h1>
+            <h1>Remove Stock</h1>
             <hr>
-            <form method="POST" action="/stocks" enctype="multipart/form-data">
+            <form method="POST" action="/stocks/reduction" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <div class="form-group">
                     <label for="ingredients_id">Ingredient:</label>

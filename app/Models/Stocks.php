@@ -11,6 +11,6 @@ class Stocks extends Model
 
     public function ingredients()
     {
-        return $this->hasMany(ingredients::class);
+        return $this->belongsTo(ingredients::class);
     }
 }

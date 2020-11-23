@@ -18,8 +18,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($medicalConditions as $medicalCondition)
-                            @include ('medicalConditions.medicalCondition')
+                        @foreach($stocks as $stock)
+                            @include ('stocks.stock')
                         @endforeach
                     </tbody>
                 </table>

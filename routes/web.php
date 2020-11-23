@@ -58,3 +58,11 @@ Route::get('/recipes/{recipe}/edit', 'RecipeController@edit');
 Route::put('/recipes/{recipe}','RecipeController@update');
 Route::delete('/recipes/destroy/{recipe}','RecipeController@destroy');
 
+Route::get('/stocks', 'StockController@index');
+Route::post('/stocks','StockController@store');
+Route::get('/stocks/create', 'StockController@create');
+Route::get('/stocks/{recipe}', 'StockController@show');
+Route::get('/stocks/{recipe}/edit', 'StockController@edit');
+Route::put('/stocks/{recipe}','StockController@update');
+Route::delete('/stocks/destroy/{recipe}','StockController@destroy');
+

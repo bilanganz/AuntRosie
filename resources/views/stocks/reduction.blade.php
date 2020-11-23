@@ -3,6 +3,7 @@
 @section('title', 'Remove Stock')
 
 @section('banner_link')
+<li><a href="/stocks">Stocks</a></li>
 <li><a href="Request::url()">Remove Stock</a></li>
 @endsection
 

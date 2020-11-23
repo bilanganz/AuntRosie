@@ -4,14 +4,16 @@
     {{ $ingredient->name }} Edit
 @endsection
 
+@section('banner_link')
+<li><a href="/ingredients">Ingredients</a></li>
+<li><a href="Request::url()">{{ $ingredient->name }}</a></li>
+@endsection
+
 @section('content')
 <div class="album py-5 bg-light">
     <div class="container">
         <div class="row justify-content-md-center">
             <div class="col-md-8">
-
-                <h1>Edit {{ $ingredient->name }} Information</h1>
-
                 <form method="post" action="/ingredients/{{$ingredient->id}}" enctype="multipart/form-data">
                     {{ method_field('put') }}
                     {{csrf_field()}}

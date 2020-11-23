@@ -3,7 +3,8 @@
 @section('title', 'Create Recipe')
 
 @section('banner_link')
-<li><a href="Request::url()">Add Recipes</a></li>
+<li><a href="/recipes">Recipes</a></li>
+<li><a href="Request::url()">Add Recipe</a></li>
 @endsection
 
 @section('content')

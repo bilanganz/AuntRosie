@@ -6,7 +6,7 @@
 
 @section('banner_link')
 <li><a href="/medicalConditions">Medical Conditions</a></li>
-<li><a href="Request::url()">Edit {{$medicalCondition->name}}</a></li>
+<li><a href="Request::url()">{{$medicalCondition->name}}</a></li>
 @endsection
 
 @section('content')

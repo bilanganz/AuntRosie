@@ -2,8 +2,11 @@
 
 @section('title', 'List of Recipes')
 
-@section('content')
+@section('banner_link')
+<li><a href="Request::url()">Recipes</a></li>
+@endsection
 
+@section('content')
 <div class="album py-5 bg-light">
     <div class="container">
     <a class="btn btn-primary" href="{{ URL::to('recipes/create') }}" role="button">Add New</a>

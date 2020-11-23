@@ -2,17 +2,19 @@
 
 @section('title', 'List of Medical Conditions')
 
-@section('content')
+@section('banner_link')
+<li><a href="Request::url()">Stocks</a></li>
+@endsection
 
+@section('content')
 <div class="album py-5 bg-light">
     <div class="container">
-        <div class="row justify-content-md-center">
-                <a class="btn btn-primary" href="{{ URL::to('stocks/create') }}" role="button">Add New</a>
-                <a class="btn btn-primary" href="{{ URL::to('stocks/reduce') }}" role="button">Reduce</a>
-            </div>
         <br/>
         <div class="row justify-content-md-center">
             <div class="col-md-8">
+                <a class="btn btn-primary" href="{{ URL::to('stocks/create') }}" role="button">Add New</a>
+                <a class="btn btn-primary" href="{{ URL::to('stocks/reduce') }}" role="button">Reduce</a>
+                <p></p>
                 <table class="table">
                     <thead>
                         <tr>

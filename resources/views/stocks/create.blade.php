@@ -3,6 +3,7 @@
 @section('title', 'Add Stock')
 
 @section('banner_link')
+<li><a href="/stocks">Stocks</a></li>
 <li><a href="Request::url()">Add Stock</a></li>
 @endsection
 

@@ -4,14 +4,16 @@
     {{ $recipe->name }} Show
 @endsection
 
+@section('banner_link')
+<li><a href="/recipes">Recipes</a></li>
+<li><a href="Request::url()">{{ $recipe->name }}</a></li>
+@endsection
+
 @section('content')
 <div class="album py-5 bg-light">
     <div class="container">
         <div class="row justify-content-md-center">
             <div class="col-md-8">
-
-                <h1>Showing {{ $recipe->name }} Information</h1>
-
                 <table class="table">
                     <tbody>
                         <tr>

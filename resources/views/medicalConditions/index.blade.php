@@ -2,6 +2,10 @@
 
 @section('title', 'List of Medical Conditions')
 
+@section('banner_link')
+<li><a href="Request::url()">Medical Conditions</a></li>
+@endsection
+
 @section('content')
 <div class="album py-5 bg-light">
     <div class="container">

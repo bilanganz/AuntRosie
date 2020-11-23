@@ -2,6 +2,11 @@
 
 @section('title', 'Create Recipe')
 
+@section('banner_link')
+<li><a href="/recipes">Recipes</a></li>
+<li><a href="Request::url()">{{ $recipe->name }}</a></li>
+@endsection
+
 @section('content')
 <script>
     function createChk(obj) {
@@ -28,7 +33,6 @@
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-sm-5">
-            <h1>Edit {{ $recipe->name }} Information</h1>
             <hr>
             <form method="POST" action="/recipes/{{$recipe->id}}" enctype="multipart/form-data">
                 {{ method_field('put') }}

@@ -13,7 +13,6 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Description</th>
                             <th scope="col" colspan="3">Action</th>
                         </tr>
                     </thead>

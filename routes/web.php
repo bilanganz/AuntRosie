@@ -64,4 +64,10 @@ Route::get('/stocks/create', 'StockController@create');
 Route::post('/stocks/reduction', 'StockController@reduction');
 Route::get('/stocks/reduce', 'StockController@reduce');
 
-
+Route::get('/inventories', 'InventoryController@index');
+Route::post('/inventories','InventoryController@store');
+Route::get('/inventories/create', 'InventoryController@create');
+Route::get('/inventories/{inventory}', 'InventoryController@show');
+Route::get('/inventories/{inventory}/edit', 'InventoryController@edit');
+Route::put('/inventories/{inventory}','InventoryController@update');
+Route::delete('/inventories/destroy/{inventory}','InventoryController@destroy');

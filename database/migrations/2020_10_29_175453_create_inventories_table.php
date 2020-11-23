@@ -17,7 +17,7 @@ class CreateInventoriesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('recipe_id');
             $table->double('price', 8, 2);
-            $table->date('productionDate');
+            $table->date('production_date');
             $table->bigInteger('quantity');
             $table->foreign('recipe_id')->references('id')->on('recipes');
         });

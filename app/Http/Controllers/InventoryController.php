@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Inventory;
 
 class InventoryController extends Controller
 {
@@ -11,9 +12,10 @@ class InventoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Inventory $inventories)
     {
-        //
+        $inventories = $inventories::all();
+        return view('inventories.index',compact('inventories'));
     }
 
     /**

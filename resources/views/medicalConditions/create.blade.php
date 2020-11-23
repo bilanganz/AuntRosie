@@ -3,6 +3,7 @@
 @section('title', 'Create Medical Condition')
 
 @section('banner_link')
+<li><a href="/medicalConditions">Medical Conditions</a></li>
 <li><a href="Request::url()">Add Medical Condition</a></li>
 @endsection
 

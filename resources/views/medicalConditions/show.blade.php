@@ -1,7 +1,12 @@
 @extends('layouts.master')
 
 @section('title')
-    {{ $medicalCondition->name }} Show
+    {{ $medicalCondition->name }} Information
+@endsection
+
+@section('banner_link')
+<li><a href="/medicalConditions">Medical Conditions</a></li>
+<li><a href="Request::url()">{{ $medicalCondition->name }} Information</a></li>
 @endsection
 
 @section('content')
@@ -9,9 +14,6 @@
     <div class="container">
         <div class="row justify-content-md-center">
             <div class="col-md-8">
-
-                <h1>Showing {{ $medicalCondition->name }} Information</h1>
-
                 <table class="table">
                     <tbody>
                         <tr>

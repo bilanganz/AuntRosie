@@ -4,14 +4,16 @@
     {{ $medicalCondition->name }} Edit
 @endsection
 
+@section('banner_link')
+<li><a href="/medicalConditions">Medical Conditions</a></li>
+<li><a href="Request::url()">Edit {{$medicalCondition->name}}</a></li>
+@endsection
+
 @section('content')
 <div class="album py-5 bg-light">
     <div class="container">
         <div class="row justify-content-md-center">
             <div class="col-md-8">
-
-                <h1>Edit {{ $medicalCondition->name }} Information</h1>
-
                 <form method="post" action="/medicalConditions/{{$medicalCondition->id}}" enctype="multipart/form-data">
                     {{ method_field('put') }}
                     {{csrf_field()}}

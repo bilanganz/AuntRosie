@@ -2,11 +2,14 @@
 
 @section('title', 'Remove Stock')
 
+@section('banner_link')
+<li><a href="Request::url()">Remove Stock</a></li>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-sm-5">
-            <h1>Remove Stock</h1>
             <hr>
             <form method="POST" action="/stocks/reduction" enctype="multipart/form-data">
                 {{csrf_field()}}

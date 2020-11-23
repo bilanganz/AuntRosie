@@ -1,12 +1,15 @@
 @extends('layouts.master')
 
-@section('title', 'Create Medical Condition')
+@section('title', 'Add Stock')
+
+@section('banner_link')
+<li><a href="Request::url()">Add Stock</a></li>
+@endsection
 
 @section('content')
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-sm-5">
-            <h1>Insert New Medical Condition</h1>
             <hr>
             <form method="POST" action="/stocks" enctype="multipart/form-data">
                 {{csrf_field()}}

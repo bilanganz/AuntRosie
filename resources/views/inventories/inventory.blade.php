@@ -1,7 +1,7 @@
-<div class="col-md-4">
-    <div class="card mb-4 box-shadow">
-    <div class="card-body">
-        <h2>{{ $inventory->price }}</h2>
-    </div>
-    </div>
-</div>
+<tr>
+    <th scope="row">{{ $inventory->id }}</th>
+    <td>{{ $inventory->recipes->name }}</td>
+    <td>{{ $inventory->quantity }}</td>
+    <td>{{ $inventory->price }}</td>
+    <td>{{ $inventory->production_date }}</td>
+</tr>

@@ -17,7 +17,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($stocks as $stock)
+                        @foreach($stocksTotal as $stock)
                             @include ('stocks.stock')
                         @endforeach
                     </tbody>

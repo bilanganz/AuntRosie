@@ -14,8 +14,11 @@ class StockController extends Controller
      */
     public function index(Stocks $stocks)
     {
+        $stocksTotal = Stocks::selectRaw('SUM(quantity) as quantity, ingredients_id')
+        ->groupBy('ingredients_id')->get();
         $stocks = $stocks::all();
-        return view('stocks.index',compact('stocks'));
+        // dd($stocksTotal);
+        return view('stocks.index',compact('stocks','stocksTotal'));
     }
 
     /**

@@ -114,24 +114,15 @@ class RecipeController extends Controller
         $ingredients = $request->ingredients;
         $amount = $request->amount;
         $size = count(collect($request)->get('ingredients'));
+        $data =[];
 
         for ($i = 0; $i < $size; $i++)
         {
-            // $recipe->ingredients[$i] = ['amount' => $amount[$i]];  
-
-            // $recipe->ingredients()->sync([1=>$ingredients[$i], 2=> ['amount' => $amount[$i]]]);
-            
+            $data[$i+1]['ingredients_id'] = $ingredients[$i];
+            $data[$i+1]['amount'] = $amount[$i];
         }
 
-        $recipe->ingredients()->sync([
-            1,
-            2,
-            3,
-            4 =>['amount' => $amount]
-        ]);
-
-        
-        // $recipe->ingredients()->sync($ingredients);
+        $recipe->ingredients()->sync($data);
 
         return redirect()->action([RecipeController::class, 'index']);
     }

@@ -22,6 +22,6 @@ class Recipes extends Model
 
     public function inventory()
     {
-        return $this->belongsTo(inventory::class);
+        return $this->hasMany(inventory::class);
     }
 }

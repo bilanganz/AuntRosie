@@ -11,7 +11,7 @@ class Inventory extends Model
 
     public function recipes()
     {
-        return $this->hasMany(recipes::class);
+        return $this->belongsTo(recipes::class);
     }
 
     public function sales()

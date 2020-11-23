@@ -15,11 +15,11 @@ class CreateInventoriesTable extends Migration
     {
         Schema::create('inventories', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('recipe_id');
+            $table->unsignedBigInteger('recipes_id');
             $table->double('price', 8, 2);
             $table->date('production_date');
             $table->bigInteger('quantity');
-            $table->foreign('recipe_id')->references('id')->on('recipes');
+            $table->foreign('recipes_id')->references('id')->on('recipes');
         });
     }
 

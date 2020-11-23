@@ -12,6 +12,8 @@
         <br/>
         <div class="row justify-content-md-center">
             <div class="col-md-8">
+                <a class="btn btn-primary" href="{{ URL::to('inventories/create') }}" role="button">Add New</a>
+                <p></p>
                 <table class="table">
                     <thead>
                         <tr>
@@ -20,6 +22,7 @@
                             <th scope="col">Quantity</th>
                             <th scope="col">Price</th>
                             <th scope="col">Production Date</th>
+                            <th scope="col" colspan="3">Action</th>
                         </tr>
                     </thead>
                     <tbody>

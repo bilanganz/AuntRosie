@@ -71,3 +71,11 @@ Route::get('/inventories/{inventory}', 'InventoryController@show');
 Route::get('/inventories/{inventory}/edit', 'InventoryController@edit');
 Route::put('/inventories/{inventory}','InventoryController@update');
 Route::delete('/inventories/destroy/{inventory}','InventoryController@destroy');
+
+Route::get('/sales', 'SalesController@index');
+Route::post('/sales','SalesController@store');
+Route::get('/sales/create', 'SalesController@create');
+Route::get('/sales/{sale}', 'SalesController@show');
+Route::get('/sales/{sale}/edit', 'SalesController@edit');
+Route::put('/sales/{sale}','SalesController@update');
+Route::delete('/sales/destroy/{sale}','SalesController@destroy');

@@ -24,19 +24,22 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="name">Price:</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Name" @if(!$errors->has('name')) value="{{ old('name') }}" @endif>
-                    {!! $errors->first('name', '<p class="alert alert-danger">:message</p>') !!}
+                    <label for="price">Price:</label>
+                    <input type="number" min="1" class="form-control" id="price" name="price" placeholder="Price" @if(!$errors->has('price')) value="{{ old('price') }}" @endif>
+                    {!! $errors->first('price', '<p class="alert alert-danger">:message</p>') !!}
                 </div>
                 <div class="form-group">
-                    <label for="description">Date:</label>
-                    <textarea id="description" name="description" class="form-control" placeholder="Description">@if(!$errors->has('description')) {{ old('description') }} @endif</textarea>
-                    {!! $errors->first('description', '<p class="alert alert-danger">:message</p>') !!}
+                    <label for="production_date">Production Date:</label>
+                    <input type="date" id="production_date" name="production_date" class="form-control" placeholder="Production Date">@if(!$errors->has('production_date')) {{ old('production_date') }} @endif</textarea>
+                    {!! $errors->first('production_date', '<p class="alert alert-danger">:message</p>') !!}
                 </div>
                 <div class="form-group">
-                    <label for="description">Quantity:</label>
-                    <textarea id="description" name="description" class="form-control" placeholder="Description">@if(!$errors->has('description')) {{ old('description') }} @endif</textarea>
-                    {!! $errors->first('description', '<p class="alert alert-danger">:message</p>') !!}
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" min="1" id="quantity" name="quantity" class="form-control" placeholder="Quantity">@if(!$errors->has('quantity')) {{ old('quantity') }} @endif</textarea>
+                    {!! $errors->first('quantity', '<p class="alert alert-danger">:message</p>') !!}
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Publish</button>
                 </div>
             </form>
         </div>

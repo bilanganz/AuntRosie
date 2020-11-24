@@ -38,7 +38,17 @@ class InventoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'recipes_id' => 'required|numeric|min:0|not_in:0',
+            'price' => 'required|numeric|min:0|not_in:0|regex:/^\d*(\.\d{2})?$/',
+            'production_date' => 'required|Date',
+            'quantity' => 'required|numeric|min:0|not_in:0'
+        ]);
+
+        $inventory =  new Inventory(request(['recipes_id','price','production_date','quantity']));
+        $inventory->save();
+
+        return redirect()->action([InventoryController::class, 'index']);
     }
 
     /**

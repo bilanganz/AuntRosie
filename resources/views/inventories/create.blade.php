@@ -30,12 +30,12 @@
                 </div>
                 <div class="form-group">
                     <label for="production_date">Production Date:</label>
-                    <input type="date" id="production_date" name="production_date" class="form-control" placeholder="Production Date">@if(!$errors->has('production_date')) {{ old('production_date') }} @endif</textarea>
+                    <input type="date" id="production_date" name="production_date" class="form-control" placeholder="Production Date" @if(!$errors->has('production_date')) value="{{ old('production_date') }}" @endif>
                     {!! $errors->first('production_date', '<p class="alert alert-danger">:message</p>') !!}
                 </div>
                 <div class="form-group">
                     <label for="quantity">Quantity:</label>
-                    <input type="number" min="1" id="quantity" name="quantity" class="form-control" placeholder="Quantity">@if(!$errors->has('quantity')) {{ old('quantity') }} @endif</textarea>
+                    <input type="number" min="1" id="quantity" name="quantity" class="form-control" placeholder="Quantity" @if(!$errors->has('quantity')) value="{{ old('quantity') }}" @endif>
                     {!! $errors->first('quantity', '<p class="alert alert-danger">:message</p>') !!}
                 </div>
                 <div class="form-group">

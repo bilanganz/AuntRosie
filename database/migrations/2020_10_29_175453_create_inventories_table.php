@@ -19,6 +19,7 @@ class CreateInventoriesTable extends Migration
             $table->double('price', 8, 2);
             $table->date('production_date');
             $table->bigInteger('quantity');
+            $table->softDeletes();
             $table->foreign('recipes_id')->references('id')->on('recipes');
         });
     }

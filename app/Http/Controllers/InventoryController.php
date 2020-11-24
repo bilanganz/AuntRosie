@@ -72,7 +72,9 @@ class InventoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $inventory = Inventory::find($id);
+        
+        return view('inventories.edit', compact(['inventory']));
     }
 
     /**
@@ -84,7 +86,21 @@ class InventoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $inventory = Inventory::find($id);
+
+        $validatedData = $request->validate([
+            'price' => 'required|numeric|min:0|not_in:0|regex:/^\d*(\.\d{2})?$/',
+            'production_date' => 'required|Date',
+            'quantity' => 'required|numeric|min:0|not_in:0'
+        ]);
+
+        $inventory->price = $request->input('price');
+        $inventory->production_date = $request->input('production_date');
+        $inventory->quantity = $request->input('quantity');
+
+        $inventory->save();
+
+        return redirect()->action([InventoryController::class, 'index']);
     }
 
     /**
@@ -95,6 +111,9 @@ class InventoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $inventory = Inventory::find($id);
+        $inventory->delete();
+
+        return redirect()->action([InventoryController::class, 'index']);
     }
 }

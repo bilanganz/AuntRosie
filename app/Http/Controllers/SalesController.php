@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Sales;
+use App\Models\Inventory;
+use App\Models\Customers;
 
 class SalesController extends Controller
 {
@@ -26,7 +28,9 @@ class SalesController extends Controller
      */
     public function create()
     {
-        //
+        $inventory = Inventory::all();
+        $customers = Customers::all();
+        return view('sales.create', compact('inventory','customers'));
     }
 
     /**

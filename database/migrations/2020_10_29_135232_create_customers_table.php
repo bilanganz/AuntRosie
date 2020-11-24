@@ -17,9 +17,9 @@ class CreateCustomersTable extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
-            $table->date('DOB');
-            $table->string('email');
-            $table->string('phone_number');
+            $table->date('DOB')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone_number')->nullable();
         });
     }
 

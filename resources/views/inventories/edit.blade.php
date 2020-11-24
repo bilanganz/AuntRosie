@@ -4,6 +4,11 @@
 Edit Inventory #{{ $inventory->id }}
 @endsection
 
+@section('banner_link')
+<li><a href="/inventories">inventories</a></li>
+<li><a href="Request::url()">Inventory #{{ $inventory->id }}</a></li>
+@endsection
+
 @section('content')
 <div class="album py-5 bg-light">
     <div class="container">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Sales;
 
 class SalesController extends Controller
 {
@@ -11,9 +12,11 @@ class SalesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Sales $sales)
     {
-        dd('asd');
+        $sales = $sales::with('inventory.recipes')->get();
+        // dd($sales);
+        return view('sales.index',compact('sales'));
     }
 
     /**

@@ -21,6 +21,6 @@ class Inventory extends Model
 
     public function sales()
     {
-        return $this->belongsToMany(sales::class);
+        return $this->belongsToMany(sales::class)->withPivot('quantity');
     }
 }

@@ -11,11 +11,11 @@ class Sales extends Model
 
     public function inventory()
     {
-        return $this->belongsToMany(inventory::class);
+        return $this->belongsToMany(inventory::class)->withPivot('quantity');;
     }
 
     public function customers()
     {
-        return $this->belongsTo(ingredients::class);
+        return $this->belongsTo(Customers::class);
     }
 }

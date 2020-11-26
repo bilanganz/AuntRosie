@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $monthlySale = DB::select('select year(sales_date),month(sales_date),count(id)
+        from sales
+        group by year(sales_date),month(sales_date)
+        order by year(sales_date),month(sales_date);');
+        return view('home', compact('monthlySale'));
     }
 }

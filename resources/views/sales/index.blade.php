@@ -7,6 +7,16 @@
 @endsection
 
 @section('content')
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
 <div class="album py-5 bg-light">
     <div class="container">
         <div class="row justify-content-md-center">
@@ -39,14 +49,5 @@
         </div>
     </div>
 </div>
-<script>
-$(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
-</script>
+
 @stop

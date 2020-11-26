@@ -18,7 +18,6 @@
                     <label for="customers_id">Customer:</label>
                     <select name="customers_id" id="customers_id">
                         @foreach($customers as $customer)
-                            <!--  @if(!$errors->has('medical_condition_id')) selected @endif -->
                             <option value="{{$customer->id}}">{{$customer->first_name . " " . $customer->last_name}}</option>
                         @endforeach
                     </select>

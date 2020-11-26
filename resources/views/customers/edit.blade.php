@@ -17,12 +17,12 @@
                     {{csrf_field()}}
                     <div class="form-group">
                         <label for="firstName">First Name:</label>
-                        <input type="text" class="form-control" id="firstName" name="firstName" @if(isset($customer)) value="{{ $customer->firstName }}" @elseif(!$errors->has('firstName')) value="{{ old('firstName') }}" @endif>
+                        <input type="text" class="form-control" id="firstName" name="firstName" @if(isset($customer)) value="{{ $customer->first_name }}" @elseif(!$errors->has('firstName')) value="{{ old('firstName') }}" @endif>
                         {!! $errors->first('firstName', '<p class="alert alert-danger">:message</p>') !!}
                     </div>
                     <div class="form-group">
                         <label for="lastName">Last Name:</label>
-                        <input type="text" class="form-control" id="lastName" name="lastName" @if(isset($customer)) value="{{ $customer->lastName }}" @elseif(!$errors->has('lastName')) value="{{ old('lastName') }}" @endif>
+                        <input type="text" class="form-control" id="lastName" name="lastName" @if(isset($customer)) value="{{ $customer->last_name }}" @elseif(!$errors->has('lastName')) value="{{ old('lastName') }}" @endif>
                         {!! $errors->first('lastName', '<p class="alert alert-danger">:message</p>') !!}
                     </div>
                     <div class="form-group">
@@ -37,7 +37,7 @@
                     </div>
                     <div class="form-group">
                         <label for="phoneNumber">Phone Number:</label>
-                        <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" @if(isset($customer)) value="{{ $customer->phoneNumber }}" @elseif(!$errors->has('phoneNumber')) value="{{ old('phoneNumber') }}" @endif>
+                        <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" @if(isset($customer)) value="{{ $customer->phone_number }}" @elseif(!$errors->has('phoneNumber')) value="{{ old('phoneNumber') }}" @endif>
                         {!! $errors->first('phoneNumber', '<p class="alert alert-danger">:message</p>') !!}
                     </div>
                     <div class="form-group">

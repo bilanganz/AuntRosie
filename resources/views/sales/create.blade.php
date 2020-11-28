@@ -23,9 +23,9 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="description">Description:</label>
-                    <input type="text" class="form-control" id="description" name="description" placeholder="Description" @if(!$errors->has('description')) value="{{ old('description') }}" @endif>
-                    {!! $errors->first('description', '<p class="alert alert-danger">:message</p>') !!}
+                    <label for="sales_date">Sales Date:</label>
+                    <input type="date" class="form-control" id="sales_date" name="sales_date" placeholder="Sales Date" @if(!$errors->has('sales_date')) value="{{ old('sales_date') }}" @endif>
+                    {!! $errors->first('sales_date', '<p class="alert alert-danger">:message</p>') !!}
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Publish</button>

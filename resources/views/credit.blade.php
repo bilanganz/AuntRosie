@@ -9,4 +9,5 @@
 <li>Ngoc Diep Nguyen</li>
 <li>Phillip Rogers</li>
 </ul>
+<p>Professor: Kyle Chapman</p>
 @stop

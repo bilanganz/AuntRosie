@@ -13,12 +13,13 @@
         // console.log(obj);
         if (obj.value !== '' && document.getElementById(obj.id).checked) {
             var chk = document.createElement('input');  // CREATE CHECK BOX.
-            chk.setAttribute('type', 'text');       // SPECIFY THE TYPE OF ELEMENT.
+            chk.setAttribute('type', 'number');       // SPECIFY THE TYPE OF ELEMENT.
             chk.setAttribute('id', obj.value);     // SET UNIQUE ID.
             chk.setAttribute('class', "form-control");
             chk.setAttribute('placeholder', 0);
             chk.setAttribute('size', 5);
             chk.setAttribute('name', 'amount[]');
+            chk.setAttribute('min', 1);
 
             // APPEND THE NEWLY CREATED CHECKBOX AND LABEL TO THE <p> ELEMENT.
             document.getElementById('container_'+obj.id.slice(-1)).appendChild(chk);

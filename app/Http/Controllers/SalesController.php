@@ -17,7 +17,7 @@ class SalesController extends Controller
     public function index(Sales $sales)
     {
         $sales = $sales::with('inventory.recipes')->get();
-        // dd($sales);
+        dd($sales);
         return view('sales.index',compact('sales'));
     }
 
@@ -41,7 +41,28 @@ class SalesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $validatedData = $request->validate([
+            'customers_id' => 'required|numeric|min:0|not_in:0',
+            'sales_date' => 'required|date',
+            'inventories' => 'required',
+            'quantity' => 'required'
+        ]);
+
+        $sale = new Sales(request(['customers_id','sales_date']));
+        $sale->save();
+
+        $inventories = $request->inventories;
+        $quantity = $request->quantity;
+        $size = count(collect($request)->get('inventories'));
+
+        for ($i = 0; $i < $size; $i++)
+        {
+            $sale->inventory()->attach($inventories[$i], ['quantity' => $quantity[$i]]);
+            Inventory::where('id', $inventories[$i])->decrement('quantity', $quantity[$i]);
+        }
+
+        return redirect()->action([SalesController::class, 'index']);
     }
 
     /**

@@ -28,9 +28,9 @@ class SalesController extends Controller
      */
     public function create()
     {
-        $inventory = Inventory::all();
+        $inventories = Inventory::where('quantity', '>', 0)->get();
         $customers = Customers::all();
-        return view('sales.create', compact('inventory','customers'));
+        return view('sales.create', compact('inventories','customers'));
     }
 
     /**

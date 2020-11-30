@@ -28,6 +28,28 @@
                     {!! $errors->first('sales_date', '<p class="alert alert-danger">:message</p>') !!}
                 </div>
                 <div class="form-group">
+                    <table class="table table-responsive-sm">
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Inventory</th>
+                            <th>Production Date</th>
+                            <th>Quantity</th>
+                        </tr>
+                    @foreach($inventories as $inventory)
+                        <tr>
+                            <td><input type="checkbox" id="inventory_{{$inventory->id}}" name="inventory[]" value="{{$inventory->id}}" onclick="createChk(inventory_{{$inventory->id}})"></td>
+                            <td><label for="inventory_{{$inventory->id}}">{{$inventory->recipes->name}}</label></td>
+                            <td>{{$inventory->quantity}}</td>
+                            <td>{{$inventory->production_date}}</td>
+                            <td id="container_{{$inventory->id}}"></td>
+                        </tr>
+                    @endforeach
+                    </table>
+                    {!! $errors->first('inventory', '<p class="alert alert-danger">:message</p>') !!}
+                    {!! $errors->first('quantity', '<p class="alert alert-danger">:message</p>') !!}
+                </div>
+                <div class="form-group">
                     <button type="submit" class="btn btn-primary">Publish</button>
                 </div>
             </form>

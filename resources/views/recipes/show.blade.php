@@ -48,20 +48,20 @@
             @endphp
             @foreach ($recipe->ingredients as $ingredient)
                 @php
-                $calories +=($ingredient->nutritions->calories)*($ingredient->pivot->amount);
-                $total_fat +=($ingredient->nutritions->fat)*($ingredient->pivot->amount);
-                $saturated_fat +=($ingredient->nutritions->saturated_fat)*($ingredient->pivot->amount);
-                $trans_fat +=($ingredient->nutritions->trans_fat)*($ingredient->pivot->amount);
-                $cholestrol +=($ingredient->nutritions->cholestrol)*($ingredient->pivot->amount);
-                $sodium +=($ingredient->nutritions->sodium)*($ingredient->pivot->amount);
-                $carbohydrate +=($ingredient->nutritions->carbohydrate)*($ingredient->pivot->amount);
-                $dietary_fiber +=($ingredient->nutritions->dietary_fiber)*($ingredient->pivot->amount);
-                $sugar +=($ingredient->nutritions->sugar)*($ingredient->pivot->amount);
-                $protein +=($ingredient->nutritions->protein)*($ingredient->pivot->amount);
-                $vitamin_d +=($ingredient->nutritions->vitamin_d)*($ingredient->pivot->amount);
-                $calcium +=($ingredient->nutritions->calcium)*($ingredient->pivot->amount);
-                $iron +=($ingredient->nutritions->iron)*($ingredient->pivot->amount);
-                $potassium +=($ingredient->nutritions->potassium)*($ingredient->pivot->amount);
+                $calories +=($ingredient->nutrition->calories)*($ingredient->pivot->amount);
+                $total_fat +=($ingredient->nutrition->fat)*($ingredient->pivot->amount);
+                $saturated_fat +=($ingredient->nutrition->saturated_fat)*($ingredient->pivot->amount);
+                $trans_fat +=($ingredient->nutrition->trans_fat)*($ingredient->pivot->amount);
+                $cholestrol +=($ingredient->nutrition->cholestrol)*($ingredient->pivot->amount);
+                $sodium +=($ingredient->nutrition->sodium)*($ingredient->pivot->amount);
+                $carbohydrate +=($ingredient->nutrition->carbohydrate)*($ingredient->pivot->amount);
+                $dietary_fiber +=($ingredient->nutrition->dietary_fiber)*($ingredient->pivot->amount);
+                $sugar +=($ingredient->nutrition->sugar)*($ingredient->pivot->amount);
+                $protein +=($ingredient->nutrition->protein)*($ingredient->pivot->amount);
+                $vitamin_d +=($ingredient->nutrition->vitamin_d)*($ingredient->pivot->amount);
+                $calcium +=($ingredient->nutrition->calcium)*($ingredient->pivot->amount);
+                $iron +=($ingredient->nutrition->iron)*($ingredient->pivot->amount);
+                $potassium +=($ingredient->nutrition->potassium)*($ingredient->pivot->amount);
                 @endphp 
             @endforeach
             
@@ -106,7 +106,7 @@
                             <td>
                             <b>
                             @php
-                                echo $total_fat/1000*rand(1,10) . '%';
+                                echo round($total_fat/1000*rand(1,10),2) . '%';
                             @endphp
                             </b>
                             </td>
@@ -122,7 +122,7 @@
                             </th>
                             <td>
                             <b>@php
-                                echo $saturated_fat/1000*rand(1,10) . '%';
+                                echo round($saturated_fat/1000*rand(1,10),2) . '%';
                             @endphp</b>
                             </td>
                         </tr>
@@ -137,7 +137,7 @@
                             </th>
                             <td>
                             <b>@php
-                                echo $trans_fat/1000*rand(1,10) . '%';
+                                echo round($trans_fat/1000*rand(1,10),2) . '%';
                             @endphp</b>
                             </td>
                         </tr>
@@ -150,7 +150,7 @@
                             </th>
                             <td>
                             <b>@php
-                                echo $cholestrol/1000*rand(1,10) . '%';
+                                echo round($cholestrol/1000*rand(1,10),2) . '%';
                             @endphp</b>
                             </td>
                         </tr>
@@ -163,7 +163,7 @@
                             </th>
                             <td>
                             <b>@php
-                                echo $sodium/1000*rand(1,10) . '%';
+                                echo round($sodium/1000*rand(1,10),2) . '%';
                             @endphp</b>
                             </td>
                         </tr>
@@ -176,7 +176,7 @@
                             </th>
                             <td>
                             <b>@php
-                                echo $carbohydrate/1000*rand(1,10) . '%';
+                                echo round($carbohydrate/1000*rand(1,10),2) . '%';
                             @endphp</b>
                             </td>
                         </tr>
@@ -191,7 +191,7 @@
                             </th>
                             <td>
                             <b>@php
-                                echo $dietary_fiber/1000*rand(1,10) . '%';
+                                echo round($dietary_fiber/1000*rand(1,10),2) . '%';
                             @endphp</b>
                             </td>
                         </tr>
@@ -206,7 +206,7 @@
                             </th>
                             <td>
                             <b>@php
-                                echo $sugar/1000*rand(1,10) . '%';
+                                echo round($sugar/1000*rand(1,10),2) . '%';
                             @endphp</b>
                             </td>
                         </tr>
@@ -219,7 +219,7 @@
                             </th>
                             <td>
                             <b>@php
-                                echo $protein/1000*rand(1,10) . '%';
+                                echo round($protein/1000*rand(1,10),2) . '%';
                             @endphp</b>
                             </td>
                         </tr>
@@ -234,7 +234,7 @@
                             </th>
                             <td>
                             <b>@php
-                                echo $vitamin_d/1000*rand(1,10) . '%';
+                                echo round($vitamin_d/1000*rand(1,10),2) . '%';
                             @endphp</b>
                             </td>
                         </tr>
@@ -249,7 +249,7 @@
                             </th>
                             <td>
                             <b>@php
-                                echo $calcium/1000*rand(1,10) . '%';
+                                echo round($calcium/1000*rand(1,10),2) . '%';
                             @endphp</b>
                             </td>
                         </tr>
@@ -264,7 +264,7 @@
                             </th>
                             <td>
                             <b>@php
-                                echo $iron/1000*rand(1,10) . '%';
+                                echo round($iron/1000*rand(1,10),2) . '%';
                             @endphp</b>
                             </td>
                         </tr>
@@ -279,7 +279,7 @@
                             </th>
                             <td>
                             <b>@php
-                                echo $potassium/1000*rand(1,10) . '%';
+                                echo round($potassium/1000*rand(1,10),2) . '%';
                             @endphp</b>
                             </td>
                         </tr>
@@ -292,13 +292,13 @@
                             <td colspan="2">
                             Vitamin A
                             @php
-                                echo rand(1,10)/100 . '%';
+                                echo round(rand(1,12)/100,2) . '%';
                             @endphp
                             </td>
                             <td>
                             Vitamin C
                             @php
-                                echo rand(1,10)/100 . '%';
+                                echo round(rand(1,15)/100,2) . '%';
                             @endphp
                             </td>
                         </tr>
@@ -306,13 +306,13 @@
                             <td colspan="2">
                             Calcium
                             @php
-                                echo rand(1,10)/100 . '%';
+                                echo round(rand(1,12)/100,2) . '%';
                             @endphp
                             </td>
                             <td>
                             Iron
                             @php
-                                echo rand(1,10)/100 . '%';
+                                echo round(rand(1,15)/100,2) . '%';
                             @endphp
                             </td>
                         </tr>

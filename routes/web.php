@@ -48,6 +48,9 @@ Route::get('/customers/{customer}/edit', 'CustomerController@edit');
 Route::put('/customers/{customer}','CustomerController@update');
 Route::delete('/customers/destroy/{customer}','CustomerController@destroy');
 
+Route::get('/membership', 'CustomerController@membershipCreate');
+Route::post('/membership', 'CustomerController@membershipStore');
+
 Route::get('/recipes', 'RecipeController@index');
 Route::post('/recipes','RecipeController@store');
 Route::get('/recipes/create', 'RecipeController@create');

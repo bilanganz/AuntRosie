@@ -15,7 +15,7 @@ $(document).ready(function(){
         data: {
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
             datasets: [{
-                label: 'My First dataset',
+                label: 'Sales Record',
                 backgroundColor: 'rgb(255, 99, 132)',
                 borderColor: 'rgb(255, 99, 132)',
                 data: [0, 10, 5, 2, 20, 30, 45]
@@ -23,7 +23,11 @@ $(document).ready(function(){
         },
 
         // Configuration options go here
-        options: {}
+        options: {
+            legend: {
+            display: false
+         }
+        }
     });
 
 });

@@ -17,9 +17,9 @@ class Ingredients extends Model
         return $this->hasOne(medicalConditions::class);
     }
 
-    public function nutritions()
+    public function nutrition()
     {
-        return $this->belongsTo(nutritions::class);
+        return $this->belongsTo(nutrition::class);
     }
 
     public function stocks()

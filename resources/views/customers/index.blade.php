@@ -14,6 +14,7 @@
                             <th scope="col">#</th>
                             <th scope="col">First Name</th>
                             <th scope="col">Last Name</th>
+                            <th scope="col">Email Address</th>
                             <th scope="col" colspan="3">Action</th>
                         </tr>
                     </thead>

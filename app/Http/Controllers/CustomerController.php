@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Customers;
+use Session;
 
 class CustomerController extends Controller
 {
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('auth',['except' => ['membershipStore', 'membershipCreate']]);
     }
 
     /**
@@ -42,17 +43,17 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'firstName' => 'required|max:255',
-            'lastName' => 'required|max:255',
-            'DOB' => 'required|date',
-            'email' => 'required|email|max:255',
-            'phoneNumber' => 'required|regex:/[0-9]{10}/|max:10'
+            'firstName' => 'max:255',
+            'lastName' => 'max:255',
+            'DOB' => 'date',
+            'email' => 'required|email|max:255|unique:customers,email',
+            'phoneNumber' => 'regex:/[0-9]{10}/|max:10'
         ]);
 
         $customer = new customers(request(['firstName','lastName','DOB','email','phoneNumber']));
         $customer->save();  
 
-        return redirect()->action([CustomersController::class, 'index']);
+        return redirect()->action([CustomerController::class, 'index']);
     }
 
     /**
@@ -93,11 +94,11 @@ class CustomerController extends Controller
         $customer = Customers::find($id);
 
         $validatedData = $request->validate([
-            'firstName' => 'required|max:255',
-            'lastName' => 'required|max:255',
-            'DOB' => 'required|date',
-            'email' => 'required|email|max:255',
-            'phoneNumber' => 'required|regex:/[0-9]{10}/|max:10'
+            'firstName' => 'max:255',
+            'lastName' => 'max:255',
+            'DOB' => 'date',
+            'email' => 'required|email|max:255|unique:customers,email,'.$customer->id,
+            'phoneNumber' => 'regex:/[0-9]{10}/|max:10'
         ]);
 
         $customer->firstName = $request->input('firstName');
@@ -108,7 +109,7 @@ class CustomerController extends Controller
 
         $customer->save();
 
-        return redirect()->action([CustomersController::class, 'index']);
+        return redirect()->action([CustomerController::class, 'index']);
     }
 
     /**
@@ -123,6 +124,29 @@ class CustomerController extends Controller
         $customer = Customer::find($id);
         $customer->delete();
 
-        return redirect()->action([CustomersController::class, 'index']);
+        return redirect()->action([CustomerController::class, 'index']);
+    }
+
+    public function membershipCreate()
+    {
+        return view('customers.membership');
+    }
+
+    public function membershipStore(Request $request)
+    {
+        $validatedData = $request->validate([
+            'firstName' => 'max:255',
+            'lastName' => 'max:255',
+            'DOB' => 'date',
+            'email' => 'required|email|max:255|unique:customers,email',
+            'phoneNumber' => 'regex:/[0-9]{10}/|max:10'
+        ]);
+
+        $customer = new customers(request(['firstName','lastName','DOB','email','phoneNumber']));
+        $customer->save();  
+        
+        Session::flash('message', 'You have successfully subscribed to Aunt Rosie'); 
+
+        return redirect('/');
     }
 }

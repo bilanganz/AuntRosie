@@ -112,7 +112,7 @@
                 </li>
                 @endauth
                 @guest
-                <li><a href="membership.html">Membership</a></li>
+                <li><a href="/membership">Membership</a></li>
                 @endguest
               </ul>
             </div>

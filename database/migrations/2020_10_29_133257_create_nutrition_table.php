@@ -13,7 +13,7 @@ class CreateNutritionTable extends Migration
      */
     public function up()
     {
-        Schema::create('nutritions', function (Blueprint $table) {
+        Schema::create('nutrition', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('calories')->default('0');
             $table->bigInteger('fat')->default('0');

@@ -32,14 +32,14 @@
                             <table class="table">
                             <tr>
                             <th>Item</th>
-                            <td>Quantity</td>
+                            <th>Quantity</th>
                             </tr>
-                            <tr>
                             @foreach($sale->inventory as $inventory)
+                            <tr>
                                 <td>{{ $inventory->recipes->name }}</td>
                                 <td>{{ $inventory->pivot->quantity }}</td>
-                            @endforeach
                             </tr>
+                            @endforeach
                             </table>
                         </td>    
                         </tr>

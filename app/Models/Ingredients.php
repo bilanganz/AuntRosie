@@ -19,7 +19,7 @@ class Ingredients extends Model
 
     public function nutritions()
     {
-        return $this->hasOne(nutritions::class);
+        return $this->belongsTo(nutritions::class);
     }
 
     public function stocks()

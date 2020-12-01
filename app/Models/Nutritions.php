@@ -14,6 +14,6 @@ class Nutritions extends Model
 
     public function ingredients()
     {
-        return $this->belongsTo(ingredients::class);
+        return $this->hasOne(ingredients::class);
     }
 }

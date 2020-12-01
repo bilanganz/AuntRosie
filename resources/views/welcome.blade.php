@@ -23,7 +23,7 @@
                                         Earum perspiciatis quis consectetur, 
                                         id ducimus ratione maxime cupiditate ab dolorum nostrum sequi possimus atque neque voluptates?
                     </p>
-                    <a class="pink_btn" href="membership.html">Register for Aunt Rosie's Membership</a>
+                    <a class="pink_btn" href="/customers/create">Register for Aunt Rosie's Membership</a>
                     </div>
                 </div>
                 <div class="col-lg-6">

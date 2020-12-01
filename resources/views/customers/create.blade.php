@@ -3,6 +3,7 @@
 @section('title', 'Create Customer')
 
 @section('banner_link')
+<li><a href="/customers">Customers</a></li>
 <li><a href="Request::url()">Add Customer</a></li>
 @endsection
 

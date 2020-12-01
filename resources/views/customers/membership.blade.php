@@ -4,6 +4,11 @@
     Membership
 @endsection
 
+@section('banner_link')
+<li><a href="Request::url()">Membership</a></li>
+@endsection
+
+
 @section('content')
 <!--================Newsletter Area =================-->
 <section class="newsletter_area gray_bg">

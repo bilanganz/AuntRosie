@@ -1,7 +1,12 @@
 @extends('layouts.master')
 
 @section('title')
-    {{ $customer->firstName . ' ' . $customer->lastName }} Show
+    {{ $customer->first_name . ' ' . $customer->last_name }} Show
+@endsection
+
+@section('banner_link')
+<li><a href="/customers">Customers</a></li>
+<li><a href="Request::url()">#{{ $customer->id }} Show</a></li>
 @endsection
 
 @section('content')
@@ -9,9 +14,6 @@
     <div class="container">
         <div class="row justify-content-md-center">
             <div class="col-md-8">
-
-                <h1>Showing {{ $customer->first_name . ' ' . $customer->last_name }} Information</h1>
-
                 <table class="table">
                     <tbody>
                         <tr>

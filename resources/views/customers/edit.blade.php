@@ -1,7 +1,12 @@
 @extends('layouts.master')
 
 @section('title')
-    {{ $customer->firstName . ' ' . $customer->lastName }} Edit
+    {{ $customer->first_name . ' ' . $customer->last_name }} Edit
+@endsection
+
+@section('banner_link')
+<li><a href="/customers">Customers</a></li>
+<li><a href="Request::url()">#{{ $customer->id }} Edit</a></li>
 @endsection
 
 @section('content')
@@ -9,9 +14,6 @@
     <div class="container">
         <div class="row justify-content-md-center">
             <div class="col-md-8">
-
-                <h1>Edit {{ $customer->firstName . ' ' . $customer->lastName }} Information</h1>
-
                 <form method="post" action="/customers/{{$customer->id}}" enctype="multipart/form-data">
                     {{ method_field('put') }}
                     {{csrf_field()}}

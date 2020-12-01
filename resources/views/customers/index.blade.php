@@ -2,8 +2,11 @@
 
 @section('title', 'List of Customers')
 
-@section('content')
+@section('banner_link')
+<li><a href="Request::url()">Customers</a></li>
+@endsection
 
+@section('content')
 <div class="album py-5 bg-light">
     <div class="container">
           <div class="row justify-content-md-center">

@@ -33,8 +33,6 @@ $(document).ready(function(){
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Customer Name</th>
-                            <th scope="col">Item</th>
-                            <th scope="col">Quantity</th>
                             <th scope="col">Purchase Date</th>
                             <th scope="col" colspan="3">Action</th>
                         </tr>

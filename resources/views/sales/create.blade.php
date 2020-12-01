@@ -76,7 +76,6 @@
                     <button type="submit" class="btn btn-primary">Publish</button>
                 </div>
             </form>
-            {{$errors}}
         </div>
     </div>
 </div>

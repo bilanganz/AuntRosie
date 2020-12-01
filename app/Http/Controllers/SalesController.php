@@ -17,7 +17,6 @@ class SalesController extends Controller
     public function index(Sales $sales)
     {
         $sales = $sales::with('inventory.recipes')->get();
-        dd($sales);
         return view('sales.index',compact('sales'));
     }
 
@@ -73,7 +72,10 @@ class SalesController extends Controller
      */
     public function show($id)
     {
-        //
+        $sale = Sales::find($id);
+        // dd($sale);
+        
+        return view('sales.show', compact(['sale']));
     }
 
     /**

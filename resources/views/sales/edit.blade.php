@@ -1,10 +1,10 @@
 @extends('layouts.master')
 
-@section('title', 'Create Recipe')
+@section('title', 'Edit Sales')
 
 @section('banner_link')
-<li><a href="/recipes">Recipes</a></li>
-<li><a href="Request::url()">{{ $recipe->name }}</a></li>
+<li><a href="/sales">Sales</a></li>
+<li><a href="Request::url()">{{ $sale->id }}</a></li>
 @endsection
 
 @section('content')
@@ -39,15 +39,11 @@
                 {{csrf_field()}}
                 <div class="form-group">
                     <label for="customers_id">Customer:</label>
-                    <select name="customers_id" id="customers_id">
-                        @foreach($customers as $customer)
-                            <option value="{{$customer->id}}">{{$customer->first_name . " " . $customer->last_name}}</option>
-                        @endforeach
-                    </select>
+                    <input type="text" id="lname" name="lname" disabled value="{{$sale->customers->first_name . ' ' . $sale->customers->last_name}}">
                 </div>
                 <div class="form-group">
                     <label for="sales_date">Sales Date:</label>
-                    <input type="date" class="form-control" id="sales_date" name="sales_date" placeholder="Sales Date" @if(!$errors->has('sales_date')) value="{{ old('sales_date') }}" @endif>
+                    <input type="date" class="form-control" id="sales_date" name="sales_date" placeholder="Sales Date" @if(isset($sale)) value="{{ $sale->sales_date }}" @elseif(!$errors->has('sales_date')) value="{{ old('sales_date') }}" @endif>
                     {!! $errors->first('sales_date', '<p class="alert alert-danger">:message</p>') !!}
                 </div>
                 <div class="form-group">
@@ -59,18 +55,7 @@
                             <th>Production Date</th>
                             <th>Quantity</th>
                         </tr>
-                    @foreach($inventories as $inventory)
-                        <tr>
-                            <td><input type="checkbox" id="inventory_{{$inventory->id}}" name="inventories[]" value="{{$inventory->id}}" onclick="createChk(inventory_{{$inventory->id}})"></td>
-                            <td><label for="inventory_{{$inventory->id}}">{{$inventory->recipes->name}}</label></td>
-                            <td>{{$inventory->quantity}}</td>
-                            <td>{{$inventory->production_date}}</td>
-                            <td id="container_{{$inventory->id}}"></td>
-                        </tr>
-                    @endforeach
                     </table>
-                    {!! $errors->first('inventories', '<p class="alert alert-danger">:message</p>') !!}
-                    {!! $errors->first('quantity', '<p class="alert alert-danger">:message</p>') !!}
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Publish</button>

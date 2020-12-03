@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Create Recipe')
+@section('title', 'Edit Recipe')
 
 @section('banner_link')
 <li><a href="/recipes">Recipes</a></li>

@@ -77,7 +77,6 @@ class SalesController extends Controller
     public function show($id)
     {
         $sale = Sales::find($id);
-        // dd($sale);
         
         return view('sales.show', compact(['sale']));
     }
@@ -90,7 +89,9 @@ class SalesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $sale = Sales::find($id);
+
+        return view('sales.edit', compact(['sale']));
     }
 
     /**
@@ -102,7 +103,14 @@ class SalesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $sale = Sales::find($id);
+
+        $validatedData = $request->validate([
+            'customers_id' => 'required|numeric|min:0|not_in:0',
+            'sales_date' => 'required|date',
+            'inventories' => 'required',
+            'quantity' => 'required'
+        ]);
     }
 
     /**

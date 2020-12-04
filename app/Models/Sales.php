@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Sales extends Model
 {
@@ -11,6 +12,7 @@ class Sales extends Model
     public $timestamps = false;
     
     use HasFactory;
+    use SoftDeletes;
 
     public function inventory()
     {

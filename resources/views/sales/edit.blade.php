@@ -55,6 +55,15 @@
                             <th>Production Date</th>
                             <th>Quantity</th>
                         </tr>
+                        @foreach($sale->inventory as $inventory)
+                        <tr>
+                            <td><input type="checkbox" id="inventory_{{$inventory->id}}" name="inventories[]" value="{{$inventory->id}}" onclick="createChk(inventory_{{$inventory->id}})"</td>
+                            <td>{{ $inventory->recipes->name }}</td>
+                            <td id="container_{{$inventory->id}}">
+                                
+                            </td>
+                        </tr>
+                        @endforeach
                     </table>
                 </div>
                 <div class="form-group">

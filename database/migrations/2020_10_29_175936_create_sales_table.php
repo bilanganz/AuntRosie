@@ -17,6 +17,7 @@ class CreateSalesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('customers_id');
             $table->date('sales_date');
+            $table->softDeletes();
             $table->foreign('customers_id')->references('id')->on('customers');
         });
     }

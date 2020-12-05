@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'List of Medical Conditions')
+@section('title', 'List of Stock')
 
 @section('banner_link')
 <li><a href="Request::url()">Stocks</a></li>

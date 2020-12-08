@@ -44,17 +44,30 @@ $(document).ready(function(){
             }
         }
     });
-
+    $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
 });
 </script>
 <div class="album py-5 bg-light">
     <div class="container">
         <br/>
+        
+        <canvas id="myChart"></canvas>
         <div class="row justify-content-md-center">
-            <div class="col-md-8">
+                <div class="col-md-6"> 
+                <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                <br>
                 <a class="btn btn-primary" href="{{ URL::to('stocks/create') }}" role="button">Add New</a>
                 <a class="btn btn-primary" href="{{ URL::to('stocks/reduce') }}" role="button">Reduce</a>
-                <p></p>
+            </div>
+        </div>
+        <br>
+        <div class="row justify-content-md-center">
+            <div class="col-md-8">
                 <table class="table">
                     <thead>
                         <tr>
@@ -63,13 +76,12 @@ $(document).ready(function(){
                             <th scope="col">Quantity</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="myTable">
                         @foreach($stocksTotal as $stock)
                             @include ('stocks.stock')
                         @endforeach
                     </tbody>
                 </table>
-                <canvas id="myChart"></canvas>
             </div>
         </div>
     </div>

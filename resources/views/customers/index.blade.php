@@ -10,6 +10,7 @@
 <div class="album py-5 bg-light">
     <div class="container">
         <div class="row justify-content-md-center">
+            <a class="btn btn-primary" href="{{ URL::to('customers/create') }}" role="button">Add New</a>
             <div class="col-md-6"> 
                 <input class="form-control" id="myInput" type="text" placeholder="Search..">
             </div>

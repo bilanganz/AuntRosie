@@ -9,14 +9,28 @@
 @section('content')
 <div class="album py-5 bg-light">
     <div class="container">
-    <a class="btn btn-primary" href="{{ URL::to('recipes/create') }}" role="button">Add New</a>
-    <hr/>
-        <div class="row">
+        <div class="row justify-content-md-center">
+            <a class="btn btn-primary" href="{{ URL::to('recipes/create') }}" role="button">Add New</a>
+            <div class="col-md-6"> 
+                <input class="form-control" id="myInput" type="text" placeholder="Search..">
+            </div>
+        </div>
+        <hr/>
+        <div class="row" id="myTable">
             @foreach($recipes as $recipe)
                 @include ('recipes.recipe')
             @endforeach
         </div>
     </div>
 </div>
-
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable div .box-shadow").filter(function() {
+      $(this).parents('div .col-md-4').toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
 @stop

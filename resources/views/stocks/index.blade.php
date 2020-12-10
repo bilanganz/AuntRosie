@@ -7,6 +7,38 @@
 @endsection
 
 @section('content')
+<div class="album py-5 bg-light">
+    <div class="container">
+        <br/>
+        <canvas id="myChart"></canvas>
+            <div class="row justify-content-md-center">
+                <a class="btn btn-primary" href="{{ URL::to('stocks/create') }}" role="button">Add New</a>&emsp;
+                <a class="btn btn-primary" href="{{ URL::to('stocks/reduce') }}" role="button">Reduce</a>
+                <div class="col-md-6"> 
+                    <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                </div>
+            </div>
+        <br>
+        <div class="row justify-content-md-center">
+            <div class="col-md-8">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody id="myTable">
+                        @foreach($stocksTotal as $stock)
+                            @include ('stocks.stock')
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script>
 $(document).ready(function(){
@@ -52,39 +84,4 @@ $(document).ready(function(){
   });
 });
 </script>
-<div class="album py-5 bg-light">
-    <div class="container">
-        <br/>
-        
-        <canvas id="myChart"></canvas>
-        <div class="row justify-content-md-center">
-                <div class="col-md-6"> 
-                <input class="form-control" id="myInput" type="text" placeholder="Search..">
-                <br>
-                <a class="btn btn-primary" href="{{ URL::to('stocks/create') }}" role="button">Add New</a>
-                <a class="btn btn-primary" href="{{ URL::to('stocks/reduce') }}" role="button">Reduce</a>
-            </div>
-        </div>
-        <br>
-        <div class="row justify-content-md-center">
-            <div class="col-md-8">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Quantity</th>
-                        </tr>
-                    </thead>
-                    <tbody id="myTable">
-                        @foreach($stocksTotal as $stock)
-                            @include ('stocks.stock')
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-
 @stop

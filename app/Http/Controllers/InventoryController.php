@@ -19,7 +19,7 @@ class InventoryController extends Controller
      */
     public function index(Inventory $inventories)
     {
-        $inventories = $inventories::all();
+        $inventories = $inventories::where('quantity', '>', '0')->get();
         return view('inventories.index',compact('inventories'));
     }
 

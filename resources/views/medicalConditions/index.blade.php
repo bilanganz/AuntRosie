@@ -35,6 +35,25 @@
                 </table>
             </div>
         </div>
+        <!-- <div class="row justify-content-md-center">
+            <div class="col-md-8">
+            <h4>Soft Deleted Conditions</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody id="myTable">
+                        @foreach($deletedConditions as $deletedCondition)
+                            @include ('medicalConditions.deletedCondition')
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div> -->
     </div>
 </div>
 <script>

@@ -19,8 +19,10 @@ class MedicalConditionController extends Controller
      */
     public function index(MedicalConditions $medicalConditions)
     {
+        $deletedConditions = $medicalConditions::onlyTrashed()->get();
         $medicalConditions = $medicalConditions::all();
-        return view('medicalConditions.index',compact('medicalConditions'));
+        
+        return view('medicalConditions.index',compact('medicalConditions','deletedConditions'));
     }
 
     /**

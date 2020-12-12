@@ -67,7 +67,6 @@
             
             <div class="row">
                 <div class="col">
-                <h4>Nutrition Facts</h4>
                 <section class="performance-facts">
                     <header class="performance-facts__header">
                         <h1 class="performance-facts__title">Nutrition Facts</h1>
@@ -106,7 +105,7 @@
                             <td>
                             <b>
                             @php
-                                echo round($total_fat/1000*rand(1,10),2) . '%';
+                                echo round($total_fat/1000/65,2) . '%';
                             @endphp
                             </b>
                             </td>
@@ -122,7 +121,7 @@
                             </th>
                             <td>
                             <b>@php
-                                echo round($saturated_fat/1000*rand(1,10),2) . '%';
+                                echo round($saturated_fat/1000/20,2) . '%';
                             @endphp</b>
                             </td>
                         </tr>
@@ -137,7 +136,7 @@
                             </th>
                             <td>
                             <b>@php
-                                echo round($trans_fat/1000*rand(1,10),2) . '%';
+                                echo round($trans_fat/1000/20,2) . '%';
                             @endphp</b>
                             </td>
                         </tr>
@@ -150,7 +149,7 @@
                             </th>
                             <td>
                             <b>@php
-                                echo round($cholestrol/1000*rand(1,10),2) . '%';
+                                echo round($cholestrol/1000/0.3,2) . '%';
                             @endphp</b>
                             </td>
                         </tr>
@@ -163,7 +162,7 @@
                             </th>
                             <td>
                             <b>@php
-                                echo round($sodium/1000*rand(1,10),2) . '%';
+                                echo round($sodium/1000/2.4,2) . '%';
                             @endphp</b>
                             </td>
                         </tr>
@@ -176,7 +175,7 @@
                             </th>
                             <td>
                             <b>@php
-                                echo round($carbohydrate/1000*rand(1,10),2) . '%';
+                                echo round($carbohydrate/1000/300,2) . '%';
                             @endphp</b>
                             </td>
                         </tr>
@@ -191,7 +190,7 @@
                             </th>
                             <td>
                             <b>@php
-                                echo round($dietary_fiber/1000*rand(1,10),2) . '%';
+                                echo round($dietary_fiber/1000/25,2) . '%';
                             @endphp</b>
                             </td>
                         </tr>
@@ -206,7 +205,7 @@
                             </th>
                             <td>
                             <b>@php
-                                echo round($sugar/1000*rand(1,10),2) . '%';
+                                echo round($sugar/10000*0.8,2) . '%';
                             @endphp</b>
                             </td>
                         </tr>
@@ -219,7 +218,7 @@
                             </th>
                             <td>
                             <b>@php
-                                echo round($protein/1000*rand(1,10),2) . '%';
+                                echo round($protein/1000*0.6,2) . '%';
                             @endphp</b>
                             </td>
                         </tr>
@@ -249,7 +248,7 @@
                             </th>
                             <td>
                             <b>@php
-                                echo round($calcium/1000*rand(1,10),2) . '%';
+                                echo round($calcium/1000/1.1,2) . '%';
                             @endphp</b>
                             </td>
                         </tr>
@@ -264,7 +263,7 @@
                             </th>
                             <td>
                             <b>@php
-                                echo round($iron/1000*rand(1,10),2) . '%';
+                                echo round($iron/1000/0.014,2) . '%';
                             @endphp</b>
                             </td>
                         </tr>
@@ -279,7 +278,7 @@
                             </th>
                             <td>
                             <b>@php
-                                echo round($potassium/1000*rand(1,10),2) . '%';
+                                echo round($potassium/1000/17,2) . '%';
                             @endphp</b>
                             </td>
                         </tr>

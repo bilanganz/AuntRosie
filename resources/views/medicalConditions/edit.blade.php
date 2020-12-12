@@ -27,6 +27,9 @@
                         <input type="text" class="form-control" id="description" name="description" @if(isset($medicalCondition)) value="{{ $medicalCondition->description }}" @elseif(!$errors->has('description')) value="{{ old('description') }}" @endif>
                         {!! $errors->first('description', '<p class="alert alert-danger">:message</p>') !!}
                     </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
                 </form>
             </div>
         </div>

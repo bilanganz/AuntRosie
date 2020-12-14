@@ -114,6 +114,7 @@
                 @guest
                 <li><a href="/membership">Membership</a></li>
                 @endguest
+                <li><a href="/credit">Credit</a></li>
               </ul>
             </div>
           </nav>

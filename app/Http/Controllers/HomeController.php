@@ -24,10 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $monthlySale = DB::select('select year(sales_date),month(sales_date),count(id)
+        $monthlySales = DB::select('select year(sales_date) as year, month(sales_date) as month, count(id) as id
         from sales
         group by year(sales_date),month(sales_date)
         order by year(sales_date),month(sales_date);');
-        return view('home', compact('monthlySale'));
+        // dd($monthlySales);
+        return view('home', compact('monthlySales'));
     }
 }
